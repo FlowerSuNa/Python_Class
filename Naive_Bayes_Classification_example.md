@@ -1,8 +1,7 @@
 
 # Naive Bayes Classification
 
-##### reference :
-파이썬 데이터 사이언스 핸드북 / 437p-444p
+##### reference : 파이썬 데이터 사이언스 핸드북 / 437p-444p
 
 
 ```python
@@ -30,7 +29,7 @@ plt.scatter(X[:,0], X[:,1], c=y, s=50, cmap='RdBu')
 
 
 
-![png](output_4_1.png)
+![png](png/output_4_1.png)
 
 
 
@@ -70,7 +69,7 @@ plt.axis(lim)
 
 
 
-![png](output_7_1.png)
+![png](png/output_7_1.png)
 
 
 
@@ -188,7 +187,7 @@ plt.ylabel('predicted label')
 
 
 
-![png](output_14_1.png)
+![png](png/output_14_1.png)
 
 
 
