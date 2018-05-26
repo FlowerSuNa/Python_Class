@@ -5,4 +5,4 @@
 
 
 ### Machine Learning
-[K-Nearest Neighbors](MacineLearning_K_Nearest_Neighbors.md)
+[K-Nearest Neighbors](MachineLearning_K_Nearest_Neighbors.md)
