@@ -1,4 +1,3 @@
-
 # NumPy
 
 ##### 참고 : 파이 데이터 사이언스 핸드북 38p-57p
@@ -592,6 +591,8 @@ np.hstack([y,grid])
 > .split() <br>
 > .vsplit() <br>
 > .hsplit()
+
+<br>
 
 ###### In
 ```python
