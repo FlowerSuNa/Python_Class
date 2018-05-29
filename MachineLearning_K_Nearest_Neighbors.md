@@ -28,7 +28,6 @@ import matplotlib.pyplot as plt
 
 ##### 그래프 한글 설정
 
-###### In
 ```python
 from matplotlib import font_manager, rc
 font_loc = "C:/Windows/Fonts/malgunbd.ttf"
@@ -40,7 +39,6 @@ rc('font', family=font_name)
 
 ##### 라이브러리 불러오기
 
-###### In
 ```python
 from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import train_test_split
@@ -51,7 +49,6 @@ from sklearn.neighbors import KNeighborsClassifier
 
 ##### 데이터 불러오기
 
-###### In
 ```python
 cancer = load_breast_cancer()
 ```
@@ -85,7 +82,6 @@ cancer.feature_names
 
 ##### 데이터 나누기
 
-###### In
 ```python
 X_train, X_test, y_train, y_test = train_test_split(cancer.data, cancer.target,
                                                    stratify=cancer.target, random_state=1)
@@ -95,7 +91,6 @@ X_train, X_test, y_train, y_test = train_test_split(cancer.data, cancer.target,
 
 ##### 모델 훈련
 
-###### In
 ```python
 train_acc = []
 test_acc = []
@@ -127,7 +122,6 @@ plt.legend()
 
 ##### 목표 변수 예측
 
-###### In
 ```python
 knn = KNeighborsClassifier(n_neighbors=9)
 knn.fit(X_train, y_train)
