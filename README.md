@@ -1,7 +1,8 @@
 # Python Class
 
 ### NumPy
-[01](NumPy_01.md)
+[01](NumPy_01.md) <br>
+[02](NumPy_02.md)
 
 
 ### Machine Learning
