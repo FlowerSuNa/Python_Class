@@ -21,7 +21,6 @@
 
 <br>
 
-###### In
 ```python
 import matplotlib.pyplot as plt
 ```
