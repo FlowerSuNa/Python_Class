@@ -2,7 +2,8 @@
 
 ### NumPy
 [01](NumPy_01.md) <br>
-[02](NumPy_02.md)
+[02](NumPy_02.md) <br>
+[03](NumPy_03.md)
 
 
 ### Machine Learning
