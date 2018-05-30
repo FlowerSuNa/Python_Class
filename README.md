@@ -6,4 +6,5 @@
 
 
 ### Machine Learning
-[K-Nearest Neighbors](MachineLearning_K_Nearest_Neighbors.md)
+[K-Nearest Neighbors](MachineLearning_K_Nearest_Neighbors.md) <br>
+[Linear Regression, Ridge, Lasso](MachineLearning_Linear.md)
