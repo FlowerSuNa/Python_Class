@@ -48,13 +48,13 @@ model.fit(X,y)
 
 <br>
 
+##### In
 ```python
 rng = np.random.RandomState(0)
 Xnew = [-6, -14] +[14,18] * rng.rand(2000,2)
 ynew = model.predict(Xnew)
 ```
 
-##### In
 ```python
 plt.scatter(X[:,0], X[:,1], c=y, s=50, cmap='RdBu')
 plt.scatter(Xnew[:,0], Xnew[:,1], c=ynew, s=20, cmap='RdBu', alpha=0.1)
@@ -116,13 +116,13 @@ data.target_names
 
 <br>
 
+##### In
 ```python
 categories = ['talk.religion.misc', 'soc.religion.christian','sci.space','comp.graphics']
 train = fetch_20newsgroups(subset='train', categories=categories)
 test = fetch_20newsgroups(subset='test', categories=categories)
 ```
 
-##### In
 ```python
 print(train.data[5])
 ```
@@ -147,6 +147,7 @@ print(train.data[5])
     
 <br>    
 
+##### In
 ```python
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
@@ -156,7 +157,6 @@ model.fit(train.data, train.target)
 labels = model.predict(test.data)
 ```
 
-##### In
 ```python
 from sklearn.metrics import confusion_matrix
 mat = confusion_matrix(test.target, labels)
@@ -171,13 +171,13 @@ plt.ylabel('predicted label')
 
 <br>
 
+##### In
 ```python
 def predict_category(s, train=train, model=model):
     pred = model.predict([s])
     return train.target_names[pred[0]]
 ```
 
-##### In
 ```python
 predict_category('sending a payload to the ISS')
 ```
