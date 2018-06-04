@@ -1,7 +1,9 @@
 
 # Naive Bayes Classification
 
-참고 : 파이썬 라이브러를 활용한 머신러닝, 파이썬 데이터 사이언스 핸드북
+##### 참고 : 파이썬 라이브러를 활용한 머신러닝, 파이썬 데이터 사이언스 핸드북
+
+<br>
 
 > 통계량의 조건부 확률 사이의 관계를 나타내는 방정식인 베이즈 정리를 기반으로 한다. <br>
 > 선형 모델과 매우 유사하다. <br>
@@ -12,6 +14,7 @@
 ##### BernoulliNB : 이진 데이터 (대부분 텍스트 데이터)
 ##### MultinomialNB : 카운트 데이터 (대부분 텍스트 데이터)
 
+<br>
 
 ```python
 import numpy as np
@@ -19,40 +22,31 @@ import matplotlib.pyplot as plt
 import seaborn as sns; sns.set()
 ```
 
+<br>
+
 ## Gaussian Naive Bayes
 
-
+##### In
 ```python
 from sklearn.datasets import make_blobs
 X, y = make_blobs(100, 2, centers=2, random_state=2, cluster_std=1.5)
 plt.scatter(X[:,0], X[:,1], c=y, s=50, cmap='RdBu')
 ```
+##### Out
+![png](png/naive_output_5_1.png)
 
+<br>
 
-
-
-    <matplotlib.collections.PathCollection at 0x1d4f9fc9668>
-
-
-
-
-![png](output_5_1.png)
-
-
-
+##### In
 ```python
 from sklearn.naive_bayes import GaussianNB
 model = GaussianNB()
 model.fit(X,y)
 ```
-
-
-
-
+##### Out
     GaussianNB(priors=None)
 
-
-
+<br>
 
 ```python
 rng = np.random.RandomState(0)
@@ -60,34 +54,25 @@ Xnew = [-6, -14] +[14,18] * rng.rand(2000,2)
 ynew = model.predict(Xnew)
 ```
 
-
+##### In
 ```python
 plt.scatter(X[:,0], X[:,1], c=y, s=50, cmap='RdBu')
 plt.scatter(Xnew[:,0], Xnew[:,1], c=ynew, s=20, cmap='RdBu', alpha=0.1)
 lim = plt.axis()
 plt.axis(lim)
 ```
-
-
-
-
+##### Out
     (-6.799485519755617, 8.79978539770334, -15.092859694486028, 5.093538618048777)
+![png](png/naive_output_8_1.png)
 
+<br>
 
-
-
-![png](output_8_1.png)
-
-
-
+##### In
 ```python
 yprob = model.predict_proba(Xnew)
 yprob[-8:].round(2)
 ```
-
-
-
-
+##### Out
     array([[0.89, 0.11],
            [1.  , 0.  ],
            [1.  , 0.  ],
@@ -97,20 +82,17 @@ yprob[-8:].round(2)
            [0.  , 1.  ],
            [0.15, 0.85]])
 
-
+<br>
 
 ## Multinomial Naive Bayes
 
-
+##### In
 ```python
 from sklearn.datasets import fetch_20newsgroups
 data = fetch_20newsgroups()
 data.target_names
 ```
-
-
-
-
+##### Out
     ['alt.atheism',
      'comp.graphics',
      'comp.os.ms-windows.misc',
@@ -132,8 +114,7 @@ data.target_names
      'talk.politics.misc',
      'talk.religion.misc']
 
-
-
+<br>
 
 ```python
 categories = ['talk.religion.misc', 'soc.religion.christian','sci.space','comp.graphics']
@@ -141,11 +122,11 @@ train = fetch_20newsgroups(subset='train', categories=categories)
 test = fetch_20newsgroups(subset='test', categories=categories)
 ```
 
-
+##### In
 ```python
 print(train.data[5])
 ```
-
+##### Out
     From: dmcgee@uluhe.soest.hawaii.edu (Don McGee)
     Subject: Federal Hearing
     Originator: dmcgee@uluhe
@@ -164,8 +145,7 @@ print(train.data[5])
     
     2493.
     
-    
-
+<br>    
 
 ```python
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -176,7 +156,7 @@ model.fit(train.data, train.target)
 labels = model.predict(test.data)
 ```
 
-
+##### In
 ```python
 from sklearn.metrics import confusion_matrix
 mat = confusion_matrix(test.target, labels)
@@ -185,18 +165,11 @@ sns.heatmap(mat.T, square=True, annot=True, fmt='d', cbar=False,
 plt.xlabel('true label')
 plt.ylabel('predicted label')
 ```
-
-
-
-
+##### Out
     Text(92.68,0.5,'predicted label')
+![png](png/naive_output_15_1.png)
 
-
-
-
-![png](output_15_1.png)
-
-
+<br>
 
 ```python
 def predict_category(s, train=train, model=model):
@@ -204,38 +177,27 @@ def predict_category(s, train=train, model=model):
     return train.target_names[pred[0]]
 ```
 
-
+##### In
 ```python
 predict_category('sending a payload to the ISS')
 ```
-
-
-
-
+##### Out
     'sci.space'
 
+<br>
 
-
-
+##### In
 ```python
 predict_category('discussing islam vs atheism')
 ```
-
-
-
-
+##### Out
     'soc.religion.christian'
 
+<br>
 
-
-
+##### In
 ```python
 predict_category('determining the screen resolution')
 ```
-
-
-
-
+##### Out
     'comp.graphics'
-
-
