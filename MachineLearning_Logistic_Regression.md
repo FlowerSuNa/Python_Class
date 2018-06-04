@@ -18,14 +18,12 @@
 
 <br>
 
+##### 라이브러리 불러오기
+
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 ```
-
-<br>
-
-##### 라이브러리 불러오기
 
 ```python
 from sklearn.datasets import make_blobs
