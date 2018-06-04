@@ -7,7 +7,8 @@
 [04](NumPy_04.md)
 
 
-### Machine Learning
+### Scikit-learn
 [K-Nearest Neighbors](MachineLearning_K_Nearest_Neighbors.md) <br>
 [Linear Regression, Ridge, Lasso](MachineLearning_Linear.md) <br>
-[Logistic Regression](MachineLearning_Logistic_Regression.md)
+[Logistic Regression](MachineLearning_Logistic_Regression.md) <br>
+[Linear SVC](MachineLearning_LinearSVC.md) <br>
