@@ -11,4 +11,5 @@
 [K-Nearest Neighbors](MachineLearning_K_Nearest_Neighbors.md) <br>
 [Linear Regression, Ridge, Lasso](MachineLearning_Linear.md) <br>
 [Logistic Regression](MachineLearning_Logistic_Regression.md) <br>
+[Naive Bayes Classification](MachineLearning_Naive_Bayes_Classification.md) <br>
 [Linear SVC](MachineLearning_LinearSVC.md) <br>
