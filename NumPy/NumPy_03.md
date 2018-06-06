@@ -161,5 +161,5 @@ plt.imshow(z, origin='lower', extent=[0,5,0,5], cmap='viridis')
 plt.colorbar()
 ```
 ##### Out
-![png](png/numpy_output_18_1.png)
+![png](png/03_output_18_1.png)
 
