@@ -1,150 +1,128 @@
 
 # NumPy
 
-참고 : 파이썬 데이터 싸이언스 핸드북 98p-105p
-
+##### 참고 : 파이썬 데이터 싸이언스 핸드북 98p-105p
 
 ```python
 import numpy as np
 ```
+
+<br>
 
 ### 배열 정렬
 
 > .sort() <br>
 > .argsort()
 
+<br>
 
+##### In
 ```python
 x = np.array([2,1,4,3,5])
 np.sort(x) # 입력값이 수정되지 않는다.
 ```
-
-
-
-
+##### Out
     array([1, 2, 3, 4, 5])
 
+<br>
 
-
-
+##### In
 ```python
 x.sort() # 입력값이 정렬상태로 수정된다.
 x
 ```
-
-
-
-
+##### Out
     array([1, 2, 3, 4, 5])
 
+<br>
 
-
-
+##### In
 ```python
 x = np.array([2,1,4,3,5])
 i = np.argsort(x) # 정렬된 요소의 인덱스 반환
 i
 ```
-
-
-
-
+##### Out
     array([1, 0, 3, 2, 4], dtype=int64)
 
+<br>
 
-
-
+##### In
 ```python
 x[i]
 ```
-
-
-
-
+##### Out
     array([1, 2, 3, 4, 5])
 
-
+<br>
 
 행이나 열 기준으로 정렬하기
 
-
+##### In
 ```python
 rand = np.random.RandomState(42)
 X = rand.randint(0,10,(4,6))
 X
 ```
-
-
-
-
+##### Out
     array([[6, 3, 7, 4, 6, 9],
            [2, 6, 7, 4, 3, 7],
            [7, 2, 5, 4, 1, 7],
            [5, 1, 4, 0, 9, 5]])
 
+<br>
 
-
-
+##### In
 ```python
 np.sort(X, axis=0) # 각 열 정렬
 ```
-
-
-
-
+##### Out
     array([[2, 1, 4, 0, 1, 5],
            [5, 2, 5, 4, 3, 7],
            [6, 3, 7, 4, 6, 7],
            [7, 6, 7, 4, 9, 9]])
 
+<br>
 
-
-
+##### In
 ```python
 np.sort(X, axis=1) # 각 행 정렬
 ```
-
-
-
-
+##### Out
     array([[3, 4, 6, 6, 7, 9],
            [2, 3, 4, 6, 7, 7],
            [1, 2, 4, 5, 7, 7],
            [0, 1, 4, 5, 5, 9]])
 
-
+<br>
 
 ### 부분 정렬 : 파티션 나누기
 
 > .partition()
 
+<br>
 
+##### In
 ```python
 x = np.array([7,2,3,1,6,5,4])
 np.partition(x, 3) # 가장 작은 3개의 값이 앞에 나온다.
 ```
-
-
-
-
+##### Out
     array([2, 1, 3, 4, 6, 5, 7])
 
+<br>
 
-
-
+##### In
 ```python
 np.partition(X, 2, axis=1)
 ```
-
-
-
-
+##### Out
     array([[3, 4, 6, 7, 6, 9],
            [2, 3, 4, 7, 6, 7],
            [1, 2, 4, 5, 7, 7],
            [0, 1, 4, 5, 9, 5]])
 
-
+<br>
 
 ### 예제 : K 최근접 이웃 알고리즘
 
@@ -153,34 +131,24 @@ np.partition(X, 2, axis=1)
 X = rand.rand(10,2)
 ```
 
-
+##### In
 ```python
 % matplotlib inline
 import matplotlib.pyplot as plt
 import seaborn; seaborn.set()
 plt.scatter(X[:,0], X[:,1], s=100)
 ```
+##### Out
+![png](png/06_output_19_1.png)
 
+<br>
 
-
-
-    <matplotlib.collections.PathCollection at 0x169d048d588>
-
-
-
-
-![png](output_19_1.png)
-
-
-
+##### In
 ```python
 dist_sq = np.sum((X[:,np.newaxis,:] - X[np.newaxis,:,:]) ** 2, axis=-1)
 dist_sq
 ```
-
-
-
-
+##### Out
     array([[0.        , 0.40999909, 0.90538547, 0.05550496, 0.50287983,
             1.14976739, 1.15936537, 0.19672877, 1.16632222, 0.14319923],
            [0.40999909, 0.        , 0.55794316, 0.18090431, 0.00906581,
@@ -202,68 +170,53 @@ dist_sq
            [0.14319923, 0.16679585, 1.03211241, 0.0288717 , 0.18859392,
             0.56059965, 0.66652228, 0.00424306, 0.60957115, 0.        ]])
 
+<br>
 
-
-
+##### In
 ```python
 differences = X[:,np.newaxis,:] - X[np.newaxis,:,:]
 differences.shape
 ```
-
-
-
-
+##### Out
     (10, 10, 2)
 
+<br>
 
-
-
+##### In
 ```python
 sq_differences = differences ** 2
 sq_differences.shape
 ```
-
-
-
-
+##### Out
     (10, 10, 2)
 
+<br>
 
-
-
+##### In
 ```python
 dist_sq = sq_differences.sum(-1)
 dist_sq.shape
 ```
-
-
-
-
+##### Out
     (10, 10)
 
+<br>
 
-
-
+##### In
 ```python
 dist_sq.diagonal()
 ```
-
-
-
-
+##### Out
     array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])
 
+<br>
 
-
-
+##### In
 ```python
 nearest = np.argsort(dist_sq, axis=1)
 nearest
 ```
-
-
-
-
+##### Out
     array([[0, 3, 9, 7, 1, 4, 2, 5, 6, 8],
            [1, 4, 7, 9, 3, 6, 8, 5, 0, 2],
            [2, 1, 4, 6, 3, 0, 8, 9, 7, 5],
@@ -275,9 +228,9 @@ nearest
            [8, 5, 6, 4, 1, 7, 9, 3, 2, 0],
            [9, 7, 3, 0, 1, 4, 5, 8, 6, 2]], dtype=int64)
 
+<br>
 
-
-
+##### In
 ```python
 K = 2
 nearest_partition = np.argpartition(dist_sq, K+1, axis=1)
@@ -289,7 +242,6 @@ for i in range(X.shape[0]):
     for j in nearest_partition[i, :K+1]:
         plt.plot(*zip(X[j], X[i]), color='black')
 ```
-
-
-![png](output_26_0.png)
+##### Out
+![png](png/06_output_26_0.png)
 
