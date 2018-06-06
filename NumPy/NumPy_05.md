@@ -297,5 +297,7 @@ plt.hist(x, bins, histtype='step') # 더 간편하고 빠르다.
              2.89473684,  3.42105263,  3.94736842,  4.47368421,  5.        ]),
      <a list of 1 Patch objects>)
 
+<br>
+
 ![png](png/05_output_32_1.png)
 
