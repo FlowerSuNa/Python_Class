@@ -7,6 +7,7 @@
 [04 비교 연산자, 마스킹 연산](NumPy/NumPy_04.md) <br>
 [05 팬시 인덱싱](NumPy/NumPy_05.md) <br>
 [06 배열 정렬](NumPy/NumPy_06.md) <br>
+[07 구조화된 배열](NumPy/NumPy_07.md) <br>
 
 
 ### Scikit-learn
@@ -15,3 +16,4 @@
 [Logistic Regression](Scikit-learn/MachineLearning_Logistic_Regression.md) <br>
 [Naive Bayes Classification](Scikit-learn/MachineLearning_Naive_Bayes_Classification.md) <br>
 [Linear SVC](Scikit-learn/MachineLearning_LinearSVC.md) <br>
+[Decision Tree](Scikit-learn/MachineLearning_Decision_Tree.md) <br>
