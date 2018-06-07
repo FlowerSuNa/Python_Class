@@ -10,10 +10,11 @@
 [07 구조화된 배열](NumPy/NumPy_07.md) <br>
 
 
-### Scikit-learn
-[K-Nearest Neighbors](Scikit-learn/MachineLearning_K_Nearest_Neighbors.md) <br>
-[Linear Regression, Ridge, Lasso](Scikit-learn/MachineLearning_Linear.md) <br>
-[Logistic Regression](Scikit-learn/MachineLearning_Logistic_Regression.md) <br>
-[Naive Bayes Classification](Scikit-learn/MachineLearning_Naive_Bayes_Classification.md) <br>
-[Linear SVC](Scikit-learn/MachineLearning_LinearSVC.md) <br>
-[Decision Tree](Scikit-learn/MachineLearning_Decision_Tree.md) <br>
+### Scikit-Learn
+[K-Nearest Neighbors](Scikit-Learn/MachineLearning_K_Nearest_Neighbors.md) <br>
+[Linear Regression, Ridge, Lasso](Scikit-Learn/MachineLearning_Linear.md) <br>
+[Logistic Regression](Scikit-Learn/MachineLearning_Logistic_Regression.md) <br>
+[Naive Bayes Classification](Scikit-Learn/MachineLearning_Naive_Bayes_Classification.md) <br>
+[Linear SVC](Scikit-Learn/MachineLearning_LinearSVC.md) <br>
+[Decision Tree](Scikit-Learn/MachineLearning_Decision_Tree.md) <br>
+[Random Forest](Scikit-Learn/MachineLearning_Random_Forest.md) <br>
