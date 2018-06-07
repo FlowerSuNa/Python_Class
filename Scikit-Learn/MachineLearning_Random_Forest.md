@@ -52,6 +52,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 ```
 
+<br>
+
 ##### 데이터 불러오기
 
 ##### In
@@ -62,6 +64,7 @@ plt.scatter(X[:,0], X[:, 1], c=y, cmap='RdBu', s=50)
 ##### Out
 ![png](png/forest_output_10_1.png)
 
+<br>
 
 ##### 데이터 나누기
 
@@ -69,6 +72,8 @@ plt.scatter(X[:,0], X[:, 1], c=y, cmap='RdBu', s=50)
 ```python
 X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_state=0)
 ```
+
+<br>
 
 ##### 모델 훈련
 
