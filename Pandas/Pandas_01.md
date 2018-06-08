@@ -301,14 +301,11 @@ pd.DataFrame(population, columns=['population'])
 ```
 ##### Out
 
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+<table>
+    <tr>
       <th></th>
       <th>population</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>California</th>
       <td>38332521</td>
@@ -329,7 +326,6 @@ pd.DataFrame(population, columns=['population'])
       <th>Texas</th>
       <td>26448193</td>
     </tr>
-  </tbody>
 </table>
 
 <br>
@@ -341,15 +337,12 @@ pd.DataFrame(data)
 ```
 ##### Out
 
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+<table>
+    <tr>
       <th></th>
       <th>a</th>
       <th>b</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>0</th>
       <td>0</td>
@@ -365,7 +358,6 @@ pd.DataFrame(data)
       <td>2</td>
       <td>4</td>
     </tr>
-  </tbody>
 </table>
 
 <br>
@@ -376,15 +368,12 @@ pd.DataFrame(np.random.rand(3,2), columns=['foo', 'bar'], index=['a', 'b', 'c'])
 ```
 ##### Out
 
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+<table>
+    <tr>
       <th></th>
       <th>foo</th>
       <th>bar</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>a</th>
       <td>0.921707</td>
@@ -400,7 +389,6 @@ pd.DataFrame(np.random.rand(3,2), columns=['foo', 'bar'], index=['a', 'b', 'c'])
       <td>0.881099</td>
       <td>0.759329</td>
     </tr>
-  </tbody>
 </table>
 
 <br>
@@ -421,15 +409,12 @@ pd.DataFrame(A)
 ```
 ##### Out
 
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+<table>
+    <tr>
       <th></th>
       <th>A</th>
       <th>B</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>0</th>
       <td>0</td>
@@ -445,7 +430,6 @@ pd.DataFrame(A)
       <td>0</td>
       <td>0.0</td>
     </tr>
-  </tbody>
 </table>
 
 <br>
