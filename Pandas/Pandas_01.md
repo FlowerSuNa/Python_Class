@@ -224,22 +224,6 @@ states
 ```
 ##### Out
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -276,7 +260,6 @@ states
     </tr>
   </tbody>
 </table>
-</div>
 
 <br>
 
@@ -318,22 +301,6 @@ pd.DataFrame(population, columns=['population'])
 ```
 ##### Out
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -364,7 +331,6 @@ pd.DataFrame(population, columns=['population'])
     </tr>
   </tbody>
 </table>
-</div>
 
 <br>
 
@@ -375,22 +341,6 @@ pd.DataFrame(data)
 ```
 ##### Out
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -417,7 +367,6 @@ pd.DataFrame(data)
     </tr>
   </tbody>
 </table>
-</div>
 
 <br>
 
@@ -427,22 +376,6 @@ pd.DataFrame(np.random.rand(3,2), columns=['foo', 'bar'], index=['a', 'b', 'c'])
 ```
 ##### Out
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -469,7 +402,6 @@ pd.DataFrame(np.random.rand(3,2), columns=['foo', 'bar'], index=['a', 'b', 'c'])
     </tr>
   </tbody>
 </table>
-</div>
 
 <br>
 
@@ -489,22 +421,6 @@ pd.DataFrame(A)
 ```
 ##### Out
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -531,7 +447,6 @@ pd.DataFrame(A)
     </tr>
   </tbody>
 </table>
-</div>
 
 <br>
 
