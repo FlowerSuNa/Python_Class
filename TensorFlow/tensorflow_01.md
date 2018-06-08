@@ -17,7 +17,7 @@ sess = tf.Session()
 
 ### 텐서 생성
 
-고정 텐서
+##### 고정 텐서
 
 > tf.zeros() <br>
 > tf.ones() <br>
@@ -130,7 +130,7 @@ print(sess.run(x))
  
 <br> 
 
-형태가 비슷한 텐서
+##### 형태가 비슷한 텐서
 
 ##### In
 ```python
@@ -164,7 +164,7 @@ print(sess.run(x))
     
 <br>
 
-순열 텐서
+##### 순열 텐서
 
 ##### In
 ```python
@@ -198,7 +198,7 @@ print(sess.run(x))
     
 <br>
 
-랜덤 텐서
+##### 랜덤 텐서
 
 ##### In
 ```python
@@ -564,9 +564,10 @@ print(sess.run(custom_polynomial(11)))
 
 <br>
 
-선형 유닛 함수
+##### 선형 유닛 함수
 > min (max (0 , x))
 
+<br>
 
 ##### In
 ```python
@@ -586,7 +587,7 @@ print(sess.run(tf.nn.relu6([-3.,3.,10.])))
     
 <br>
 
-시그모이드 함수 (로지스틱 함수)
+##### 시그모이드 함수 (로지스틱 함수)
 > 1 / (1 + exp(-x))
 
 <br>
@@ -600,7 +601,7 @@ print(sess.run(tf.nn.sigmoid([-1.,0.,1.])))
     
 <br>
 
-하이퍼볼릭 탄젠트 함수
+##### 하이퍼볼릭 탄젠트 함수
 > (exp(x) - exp(-x)) / (exp(x) + exp(-x))
 
 <br>
@@ -614,7 +615,7 @@ print(sess.run(tf.nn.tanh([-1.,0.,1.])))
 
 <br>
 
-softsign 함수
+##### softsign 함수
 > x / (abs(x) + 1)
 
 <br>
@@ -628,7 +629,7 @@ print(sess.run(tf.nn.softsign([-1.,0.,1.])))
     
 <br>
 
-softplus 함수
+##### softplus 함수
 > log(exp(x) + 1)
 
 <br>
@@ -642,7 +643,7 @@ print(sess.run(tf.nn.softplus([-1.,0.,1.])))
    
 <br>
 
-지수 선형 유닛 함수
+##### 지수 선형 유닛 함수
 > if x < 0 : (exp(x) + 1) <br>
 > else : x
 
