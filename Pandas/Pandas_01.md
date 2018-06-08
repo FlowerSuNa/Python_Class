@@ -224,15 +224,12 @@ states
 ```
 ##### Out
 
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+<table>
+    <tr>
       <th></th>
       <th>area</th>
       <th>population</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>California</th>
       <td>423967</td>
@@ -258,7 +255,6 @@ states
       <td>695662</td>
       <td>26448193</td>
     </tr>
-  </tbody>
 </table>
 
 <br>
