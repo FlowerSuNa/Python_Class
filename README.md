@@ -13,7 +13,7 @@
 
 ## Pandas
 01 [Series, DataFrame, Index](Pandas/Pandas_01.md) <br>
-02 [데이터 선택, 데이터 연산](Pandas/Pandas_02.md) <br>
+02 [데이터 인덱싱과 ](Pandas/Pandas_02.md) <br>
 03 [누락된 데이터 처리](Pandas/Pandas_03.md) <br>
 
 <br>
