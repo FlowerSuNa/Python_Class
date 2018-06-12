@@ -1,7 +1,7 @@
 
 # TensorFlow
 
-참고 : TensorFlow Machine Learning Cookbook
+##### 참고 : TensorFlow Machine Learning Cookbook
 
 
 ```python
@@ -9,14 +9,11 @@ import tensorflow as tf
 sess = tf.Session()
 ```
 
-    C:\Users\GIGABYTE\Anaconda3\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-      from ._conv import register_converters as _register_converters
-    
-
-
 ```python
 import numpy as np
 ```
+
+<br>
 
 ### 텐서 생성
 
@@ -36,7 +33,9 @@ import numpy as np
 > tf.random_shuffle() <br>
 > tf.random_crop()
 
+<br>
 
+##### In
 ```python
 # 0 값으로 채워진 텐서
 zeros_tsr = tf.zeros([10,10])
@@ -47,7 +46,7 @@ initialize_op = tf.global_variables_initializer()
 sess.run(initialize_op)
 print(sess.run(x))
 ```
-
+##### Out
     Tensor("zeros:0", shape=(10, 10), dtype=float32)
     [[0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
      [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
@@ -60,8 +59,9 @@ print(sess.run(x))
      [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
      [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]]
     
+<br>
 
-
+##### In
 ```python
 # 1 값으로 채워진 텐서
 ones_tsr = tf.ones([10,10])
@@ -72,7 +72,7 @@ initialize_op = tf.global_variables_initializer()
 sess.run(initialize_op)
 print(sess.run(x))
 ```
-
+##### Out
     Tensor("ones:0", shape=(10, 10), dtype=float32)
     [[1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
      [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
@@ -85,8 +85,9 @@ print(sess.run(x))
      [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
      [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]]
     
+<br>
 
-
+##### In
 ```python
 # 동일한 상수 값으로 채워진 텐서
 filled_tsr = tf.fill([10,10], 42)
@@ -97,7 +98,7 @@ initialize_op = tf.global_variables_initializer()
 sess.run(initialize_op)
 print(sess.run(x))
 ```
-
+##### Out
     Tensor("Fill:0", shape=(10, 10), dtype=int32)
     [[42 42 42 42 42 42 42 42 42 42]
      [42 42 42 42 42 42 42 42 42 42]
@@ -110,8 +111,9 @@ print(sess.run(x))
      [42 42 42 42 42 42 42 42 42 42]
      [42 42 42 42 42 42 42 42 42 42]]
     
+<br>
 
-
+##### In
 ```python
 # 기존 상수를 이용해 텐서 생성
 constant_tsr = tf.constant([1,2,3])
@@ -122,14 +124,15 @@ initialize_op = tf.global_variables_initializer()
 sess.run(initialize_op)
 print(sess.run(x))
 ```
-
+##### Out
     Tensor("Const:0", shape=(3,), dtype=int32)
     [1 2 3]
     
+<br>    
 
 ##### 형태가 비슷한 텐서
 
-
+##### In
 ```python
 zeros_similar = tf.zeros_like(constant_tsr)
 print(zeros_similar)
@@ -139,12 +142,13 @@ initialize_op = tf.global_variables_initializer()
 sess.run(initialize_op)
 print(sess.run(x))
 ```
-
+##### Out
     Tensor("zeros_like:0", shape=(3,), dtype=int32)
     [0 0 0]
     
+<br>
 
-
+##### In
 ```python
 ones_similar = tf.ones_like(constant_tsr)
 print(ones_similar)
@@ -154,14 +158,15 @@ initialize_op = tf.global_variables_initializer()
 sess.run(initialize_op)
 print(sess.run(x))
 ```
-
+##### Out
     Tensor("ones_like:0", shape=(3,), dtype=int32)
     [1 1 1]
     
+<br>
 
 ##### 순열 텐서
 
-
+##### In
 ```python
 linear_tsr = tf.linspace(start=0.0, stop=1, num=3)
 print(linear_tsr)
@@ -171,12 +176,13 @@ initialize_op = tf.global_variables_initializer()
 sess.run(initialize_op)
 print(sess.run(x))
 ```
-
+##### Out
     Tensor("LinSpace:0", shape=(3,), dtype=float32)
     [0.  0.5 1. ]
     
+<br>
 
-
+##### In
 ```python
 integer_seq_tsr = tf.range(start=6, limit=15, delta=3)
 print(integer_seq_tsr)
@@ -186,14 +192,15 @@ initialize_op = tf.global_variables_initializer()
 sess.run(initialize_op)
 print(sess.run(x))
 ```
-
+##### Out
     Tensor("range:0", shape=(3,), dtype=int32)
     [ 6  9 12]
-    
+
+<br>
 
 ##### 랜덤 텐서
 
-
+##### In
 ```python
 # 균등 분포를 따르는 난수
 randunif = tf.random_uniform([5,5], minval=0, maxval=1)
@@ -204,7 +211,7 @@ initialize_op = tf.global_variables_initializer()
 sess.run(initialize_op)
 print(sess.run(x))
 ```
-
+##### Out
     Tensor("random_uniform:0", shape=(5, 5), dtype=float32)
     [[0.47994602 0.27949786 0.47412622 0.0462718  0.8612536 ]
      [0.36950815 0.7915094  0.712957   0.9372518  0.5246682 ]
@@ -212,8 +219,9 @@ print(sess.run(x))
      [0.1104511  0.2980758  0.29821336 0.0358659  0.0964452 ]
      [0.24499059 0.8546803  0.05407107 0.3529098  0.36996067]]
     
+<br>
 
-
+##### In
 ```python
 # 정규 분포를 따르는 난수
 randnorm = tf.random_normal([5,5], mean=0.0, stddev=1.0)
@@ -224,7 +232,7 @@ initialize_op = tf.global_variables_initializer()
 sess.run(initialize_op)
 print(sess.run(x))
 ```
-
+##### Out
     Tensor("random_normal:0", shape=(5, 5), dtype=float32)
     [[ 0.58746004 -0.20157363 -1.8584481   0.34749243  0.9767901 ]
      [ 0.9899406   1.0308627   1.3199621  -0.67974395  1.7002864 ]
@@ -232,8 +240,9 @@ print(sess.run(x))
      [-1.0111387  -0.34878066  0.07782032 -1.0935448  -1.0925817 ]
      [-1.0126168  -0.8538167   0.48519436  0.21645649 -0.5057047 ]]
     
+<br>
 
-
+##### In
 ```python
 # 지정한 평균에서 표준편차 2배 이내에 속하는 정규 분포를 따르는 난수
 runcnorm = tf.truncated_normal([5,5], mean=0.0, stddev=1.0)
@@ -244,7 +253,7 @@ initialize_op = tf.global_variables_initializer()
 sess.run(initialize_op)
 print(sess.run(x))
 ```
-
+##### Out
     Tensor("truncated_normal:0", shape=(5, 5), dtype=float32)
     [[ 0.13184944  0.9158358   1.4713159  -0.862025   -1.4972615 ]
      [-0.05550429  0.06317545 -0.4878063   0.46186748 -1.0651603 ]
@@ -252,8 +261,9 @@ print(sess.run(x))
      [ 0.00990442 -0.39756858 -1.02692    -0.31451374  0.08980581]
      [ 0.43964928 -0.65537506 -0.22230221 -0.82207286  1.3520684 ]]
     
+<br>
 
-
+##### In
 ```python
 # 배열 항목을 임의로 뒤섞기
 shuffled_output = tf.random_shuffle(x)
@@ -264,7 +274,7 @@ initialize_op = tf.global_variables_initializer()
 sess.run(initialize_op)
 print(sess.run(x))
 ```
-
+##### Out
     Tensor("RandomShuffle:0", shape=(5, 5), dtype=float32)
     [[ 0.89549124 -0.08373728 -0.72742015  0.26157135 -1.6027105 ]
      [ 1.408906    1.5596704   0.19840299 -0.09341444  0.8897242 ]
@@ -272,8 +282,9 @@ print(sess.run(x))
      [ 0.7633238   0.91395867 -0.63057286  0.85223305 -0.25467086]
      [-0.81976277 -0.29858184  0.8681306   0.00596275  0.6005683 ]]
     
+<br>
 
-
+##### In
 ```python
 # 배열 항목을 임의로 섞고 형태 변환 
 cropped_output = tf.random_crop(x,[3,5])
@@ -284,16 +295,19 @@ initialize_op = tf.global_variables_initializer()
 sess.run(initialize_op)
 print(sess.run(x))
 ```
-
+##### Out
     Tensor("random_crop:0", shape=(3, 5), dtype=float32)
     [[-0.81976277 -0.29858184  0.8681306   0.00596275  0.6005683 ]
      [ 1.408906    1.5596704   0.19840299 -0.09341444  0.8897242 ]
      [ 0.89549124 -0.08373728 -0.72742015  0.26157135 -1.6027105 ]]
     
+<br>
 
 > tf.convert_to_tensort() : 어떤 numpy 배열이든 파이썬 리스트로 변환 <br>
 > tf.global_variables_initializer() : 생성한 모든 변수 초기화 <br>
 > 변수.initializer : 원하는 변수 초기화
+
+<br>
 
 ### 행렬 다루기
 
@@ -306,179 +320,199 @@ C = tf.random_uniform([3,2])
 D = tf.convert_to_tensor(np.array([[1.,2.,3.],[-3.,-8.,-2.],[0.,5.,-2.]]))
 ```
 
+<br>
 
+##### In
 ```python
 print(sess.run(identity_matrix))
 ```
-
+##### Out
     [[1. 0. 0.]
      [0. 1. 0.]
      [0. 0. 1.]]
     
+<br>
 
-
+##### In
 ```python
 print(sess.run(A))
 ```
-
+##### Out
     [[-0.07530292 -0.2598322  -1.8144697 ]
      [-0.31242022 -0.03449913  0.721739  ]]
     
+<br>
 
-
+##### In
 ```python
 print(sess.run(B))
 ```
-
+##### Out
     [[5. 5. 5.]
      [5. 5. 5.]]
     
+<br>
 
-
+##### In
 ```python
 print(sess.run(C))
 ```
-
+##### Out
     [[0.7825252  0.36602592]
      [0.4789884  0.7631116 ]
      [0.8019793  0.587728  ]]
     
+<br>
 
-
+##### In
 ```python
 print(sess.run(D))
 ```
-
+##### Out
     [[ 1.  2.  3.]
      [-3. -8. -2.]
      [ 0.  5. -2.]]
     
+<br>
 
-
+##### In
 ```python
 # 행렬의 합
 print(sess.run(A+B))
 ```
-
+##### Out
     [[4.618255  3.9893596 5.345642 ]
      [6.139927  3.611445  4.943446 ]]
     
+<br>
 
-
+##### In
 ```python
 # 행렬의 차
 print(sess.run(B-B))
 ```
-
+##### Out
     [[0. 0. 0.]
      [0. 0. 0.]]
     
+<br>
 
-
+##### In
 ```python
 # 행렬의 곱
 print(sess.run(tf.matmul(B, identity_matrix)))
 ```
-
+##### Out
     [[5. 5. 5.]
      [5. 5. 5.]]
     
+<br>
 
-
+##### In
 ```python
 # 행렬 전치
 print(sess.run(tf.transpose(C)))
 ```
-
+##### Out
     [[0.8205328  0.50053453 0.517951  ]
      [0.98720133 0.94836295 0.72501945]]
     
+<br>
 
-
+##### In
 ```python
 print(sess.run(tf.matrix_determinant(D)))
 ```
-
+##### Out
     -31.0
     
+<br>
 
-
+##### In
 ```python
 # 역행렬
 print(sess.run(tf.matrix_inverse(D)))
 ```
-
+##### Out
     [[-0.83870968 -0.61290323 -0.64516129]
      [ 0.19354839  0.06451613  0.22580645]
      [ 0.48387097  0.16129032  0.06451613]]
     
+<br>
 
-
+##### In
 ```python
 # 숄레스키 분해
 print(sess.run(tf.cholesky(identity_matrix)))
 ```
-
+##### Out
     [[1. 0. 0.]
      [0. 1. 0.]
      [0. 0. 1.]]
     
+<br>
 
-
+##### In
 ```python
 # 행렬의 고윳값과 고유 벡터 (고유 분해)
 print(sess.run(tf.self_adjoint_eig(D)))
 ```
-
+##### Out
     (array([-11.38910525,  -0.29446882,   2.68357407]), array([[ 0.20901067,  0.59907787, -0.77292965],
            [ 0.86315172,  0.25849588,  0.43376144],
            [-0.45965601,  0.75781633,  0.4630667 ]]))
     
+<br>
 
 ### 연산
 
-
+##### In
 ```python
 print(sess.run(tf.div(3,4)))
 ```
-
+##### Out
     0
     
+<br>
 
-
+##### In
 ```python
 # 정수를 나누기 전에 소수로 변환해 항상 소수인 계산 결과를 반환
 print(sess.run(tf.truediv(3,4)))
 ```
-
+##### Out
     0.75
     
+<br>
 
-
+##### In
 ```python
 # 소수를 대상으로 정수 나눗셈
 print(sess.run(tf.floordiv(3.,4.)))
 ```
-
+##### Out
     0.0
     
+<br>
 
-
+##### In
 ```python
 print(sess.run(tf.mod(22.,5.)))
 ```
-
+##### Out
     2.0
     
+<br>
 
-
+##### In
 ```python
 # 외적
 print(sess.run(tf.cross([1.,0.,0.,],[0.,1.,0.])))
 ```
-
+##### Out
     [0. 0. 1.]
-    
+ 
+<br> 
 
 <table>
     <tr> <td>tf.abs()</td> <td>절대값</td> </tr>
@@ -500,6 +534,8 @@ print(sess.run(tf.cross([1.,0.,0.,],[0.,1.,0.])))
     <tr> <td>tf.square()</td> <td>제곱 값</td> </tr>
 </table>
 
+<br>
+
 <table>
     <tr> <td>tf.digamma()</td> <td>igamma() 함수의 도함수인 프사이 함수</td> </tr>
     <tr> <td>tf.erf()</td> <td>가우스 오차 함수</td> </tr>
@@ -511,12 +547,14 @@ print(sess.run(tf.cross([1.,0.,0.,],[0.,1.,0.])))
     <tr> <td>tf.squared_difference()</td> <td>차의 제곱 값</td> </tr>
 </table>
 
+<br>
 
+##### In
 ```python
 def custom_polynomial(value):
     return (tf.subtract(3 * tf.square(value), value) + 10)
 print(sess.run(custom_polynomial(11)))
 ```
-
+##### Out
     362
     
