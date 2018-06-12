@@ -34,6 +34,7 @@ target = tf.constant(0.)
 > 대상 값과의 거리 제곱 값 <br>
 > 대상 값 근처에서 기울기가 커지므로 대상 값에 다가갈수록 알고리즘의 수렴 속도가 늦어진다. (좋은 비용 함수)
 
+<br>
 
 ```python
 l2_y_vals = tf.square(target - x_vals)
