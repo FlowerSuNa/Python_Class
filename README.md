@@ -35,3 +35,4 @@
 02 [계산 그래프의 연산, 다중 연산, 다층 ](TensorFlow/tensorflow_02.md) <br>
 03 [활성화 함수 구현](TensorFlow/tensorflow_03.md) <br>
 04 [비용 함수 구현](TensorFlow/tensorflow_04.md) <br>
+05 [역전파 ](TensorFlow/tensorflow_05.md) <br>
