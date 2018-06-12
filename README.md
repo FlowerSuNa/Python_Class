@@ -31,4 +31,7 @@
 <br>
 
 ## TensorFlow
-01 [텐서 생성, 행렬 다루기, 연산, 활성화 함수](TensorFlow/tensorflow_01.md) <br>
+01 [텐서 생성, 행렬 다루기, 연산](TensorFlow/tensorflow_01.md) <br>
+02 [계산 그래프의 연산, 다중 연산, 다층 ](TensorFlow/tensorflow_02.md) <br>
+03 [활성화 함수 구현](TensorFlow/tensorflow_03.md) <br>
+04 [비용 함수 구현](TensorFlow/tensorflow_04.md) <br>
