@@ -157,6 +157,6 @@ for i in range(1400):
 
 < 최적화 알고리즘 >
 * tf.train.GradientDescentOptimizer()
-* tf.train.MonmentumOptimizer()
+* tf.train.MomentumOptimizer()
 * tf.train.AdagradOptimizer()
 * tf.train.AdadeltaOptimizer()
