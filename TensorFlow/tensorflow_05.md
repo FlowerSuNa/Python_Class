@@ -1,7 +1,7 @@
 
 # TensorFlow
 
-참고 : TensorFlow Machine Learning Cookbook
+##### 참고 : TensorFlow Machine Learning Cookbook
 
 
 ```python
@@ -9,22 +9,21 @@ import tensorflow as tf
 sess = tf.Session()
 ```
 
-    C:\Users\GIGABYTE\Anaconda3\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-      from ._conv import register_converters as _register_converters
-    
-
-
 ```python
 import numpy as np
 ```
+
+<br>
 
 ### 역전파 구현
 
 > 계산 그래프를 통해 오차를 역전파해서 변수 값을 갱신하고 비용 함수 값을 최소화하는 것
 
+<br>
+
 ##### 회귀
 
-
+##### In
 ```python
 # 데이터 및 플레이스홀더 생성
 x_vals = np.random.normal(1, 0.1, 100)
@@ -59,7 +58,7 @@ for i in range(100):
         print('Step #' + str(i+1) + ' A = ' + str(sess.run(A)))
         print('Loss = ' + str(sess.run(loss, feed_dict={x_data:rand_x, y_target:rand_y})) + '\n')
 ```
-
+##### Out
     Step #25 A = [6.158196]
     Loss = [12.751575]
     
@@ -72,8 +71,7 @@ for i in range(100):
     Step #100 A = [9.812081]
     Loss = [0.10290702]
     
-    
-
+<br>
 
 ```python
 # 초기화
@@ -81,9 +79,11 @@ tf.reset_default_graph()
 sess = tf.Session()
 ```
 
+<br>
+
 ##### 분류
 
-
+##### In
 ```python
 # 데이터 및 플레이스홀더 생성
 x_vals = np.concatenate((np.random.normal(-1, 1, 50), np.random.normal(3, 1, 50)))
@@ -122,7 +122,7 @@ for i in range(1400):
         print('Step #' + str(i+1) + ' A = ' + str(sess.run(A)))
         print('Loss = ' + str(sess.run(xentropy, feed_dict={x_data:rand_x, y_target:rand_y})) + '\n')
 ```
-
+##### Out
     Step #200 A = [6.5119305]
     Loss = [[5.5987304e-05]]
     
@@ -144,7 +144,7 @@ for i in range(1400):
     Step #1400 A = [-0.80941415]
     Loss = [[0.1717363]]
     
-    
+<br>   
 
 < 학습률 >
 
@@ -152,6 +152,8 @@ for i in range(1400):
     <tr> <td>좀 더 작은 학습률</td> <td>수렴이 더 느리지만, 결과가 더 정확함</td> <td>안정적인 답이 나오지 않으면 학습률을 낮추어 본다</td> </tr>
     <tr> <td>좀 더 큰 학습률</td> <td>결과가 덜 정확하지만, 더 빨리 수렴됨</td> <td>경우에 따라 답이 정체에 빠지는 문제를 해결해 줄 수 있다</td> </tr>
 </table>
+
+<br>
 
 < 최적화 알고리즘 >
 * tf.train.GradientDescentOptimizer()
