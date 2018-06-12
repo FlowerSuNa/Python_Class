@@ -1,7 +1,7 @@
 
 # TensorFlow
 
-참고 : TensorFlow Machine Learning Cookbook
+##### 참고 : TensorFlow Machine Learning Cookbook
 
 
 ```python
@@ -9,19 +9,16 @@ import tensorflow as tf
 sess = tf.Session()
 ```
 
-    C:\Users\GIGABYTE\Anaconda3\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-      from ._conv import register_converters as _register_converters
-    
-
-
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 ```
 
+<br>
+
 ### 계산 그래프의 연산
 
-
+##### In
 ```python
 # 투입할 데이터와 플레이스홀더 생성
 x_vals = np.array([1., 3., 5., 7., 9.])
@@ -37,17 +34,18 @@ my_product = tf.multiply(x_data, m_const)
 for x_val in x_vals:
     print(sess.run(my_product, feed_dict={x_data:x_val}))
 ```
-
+##### Out
     3.0
     9.0
     15.0
     21.0
     27.0
-    
+ 
+<br>
 
 ### 다중 연산 중첩
 
-
+##### In
 ```python
 # 투입할 데이터와 플레이스홀더 생성
 my_array = np.array([[1., 3., 5., 7., 9.], 
@@ -70,7 +68,7 @@ add1 = tf.add(prod2, a1)
 for x_val in x_vals:
     print(sess.run(add1, feed_dict={x_data:x_val}))
 ```
-
+##### Out
     [[102.]
      [ 66.]
      [ 58.]]
@@ -78,10 +76,11 @@ for x_val in x_vals:
      [ 78.]
      [ 70.]]
     
+<br>
 
 ### 다층 처리
 
-
+##### In
 ```python
 x_shape = [1, 4, 4, 1]
 x_val = np.random.uniform(size=x_shape)
@@ -114,7 +113,7 @@ with tf.name_scope('Custom_Layer') as scope:
 ```python
 print(sess.run(custom_layer1, feed_dict={x_data:x_val}))
 ```
-
+##### Out
     [[0.938902   0.94110966]
      [0.93825805 0.90098923]]
     
