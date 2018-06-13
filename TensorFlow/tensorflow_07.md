@@ -1,7 +1,7 @@
 
 # TensorFlow
 
-참고 : TensorFlow Machine Learning Cookbook
+##### 참고 : TensorFlow Machine Learning Cookbook
 
 
 ```python
@@ -9,21 +9,19 @@ import tensorflow as tf
 sess = tf.Session()
 ```
 
-    C:\Users\GIGABYTE\Anaconda3\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-      from ._conv import register_converters as _register_converters
-    
-
 
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 ```
 
+<br>
+
 ### 모델 평가
 
 ##### 회귀
 
-
+##### In
 ```python
 batch_size = 25
 
@@ -61,7 +59,7 @@ for i in range(100):
         print('Step #' + str(i+1) + ' A = ' + str(sess.run(A)))
         print('Loss = ' + str(sess.run(loss, feed_dict={x_data:rand_x, y_target:rand_y})) + '\n')
 ```
-
+##### Out
     Step #25 A = [[5.857861]]
     Loss = 15.000184
     
@@ -74,9 +72,9 @@ for i in range(100):
     Step #100 A = [[9.524381]]
     Loss = 1.123541
     
-    
+<br>
 
-
+##### In
 ```python
 # 모델 평가
 mse_test = sess.run(loss, feed_dict={x_data:np.transpose([x_vals_test]), y_target:np.transpose([y_vals_test])})
@@ -84,14 +82,15 @@ mse_train = sess.run(loss, feed_dict={x_data:np.transpose([x_vals_train]), y_tar
 print('MSE on train : ' + str(np.round(mse_train, 2)))
 print('MSE on test : ' + str(np.round(mse_test, 2)))
 ```
-
+##### Out
     MSE on train : 1.26
     MSE on test : 1.0
     
+<br>
 
 ##### 분류
 
-
+##### In
 ```python
 batch_size = 25
 
@@ -129,7 +128,7 @@ for i in range(1800):
         print('Step #' + str(i+1) + ' A = ' + str(sess.run(A)))
         print('Loss = ' + str(sess.run(xentropy, feed_dict={x_data:rand_x, y_target:rand_y})) + '\n')
 ```
-
+##### Out
     Step #200 A = [3.8651848]
     Loss = 0.83649194
     
@@ -157,9 +156,9 @@ for i in range(1800):
     Step #1800 A = [-0.472365]
     Loss = 0.34935188
     
-    
+<br>    
 
-
+##### In
 ```python
 y_prediction = tf.squeeze(tf.round(tf.nn.sigmoid(tf.add(x_data, A))))
 correct_prediction = tf.equal(y_prediction, y_target)
@@ -169,14 +168,15 @@ acc_value_train = sess.run(accuracy, feed_dict={x_data:[x_vals_train], y_target:
 print('Accuracy on train set : ' + str(acc_value_train))
 print('Accuracy on test set : ' + str(acc_value_test))
 ```
-
+##### Out
     Accuracy on train set : 0.9375
     Accuracy on test set : 0.95
     
+<br>
 
 ##### 시각화
 
-
+##### In
 ```python
 A_result = -sess.run(A)
 bins = np.linspace(-5, 5, 50)
@@ -187,7 +187,6 @@ plt.legend(loc='upper right')
 plt.title('Binary Classifier, Accuracy='+str(np.round(acc_value_test,2)))
 plt.show()
 ```
-
-
-![png](output_12_0.png)
+##### Out
+![png](png/07_output_12_0.png)
 
