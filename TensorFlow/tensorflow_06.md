@@ -1,7 +1,7 @@
 
 # TensorFlow
 
-참고 : TensorFlow Machine Learning Cookbook
+##### 참고 : TensorFlow Machine Learning Cookbook
 
 
 ```python
@@ -9,15 +9,12 @@ import tensorflow as tf
 sess = tf.Session()
 ```
 
-    C:\Users\GIGABYTE\Anaconda3\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-      from ._conv import register_converters as _register_converters
-    
-
-
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 ```
+
+<br>
 
 ### 일괄 학습과 확률적 학습
 
@@ -27,9 +24,11 @@ import matplotlib.pyplot as plt
 너무 큰 규모의 데이터를 일괄적으로 사용하는 것은 계산양이 너무 많을 수 있다. 
 > 적절한 유형의 학습 방식 선택은 머신러닝 알고리즘의 정답 수렴에 중요한 요소다.
 
+<br>
+
 ##### 일괄 비용 함수
 
-
+##### In
 ```python
 # 일괄 작업 크기 선언
 # - 계산 그래프에 얼마나 많은 관찰 데이터를 한 번에 투입할 것인지
@@ -76,7 +75,7 @@ for i in range(100):
         print('Loss = ' + str(temp_loss) + '\n')
         loss_batch.append(temp_loss)
 ```
-
+##### Out
     Step #5 A = [[2.2460914]]
     Loss = 59.84831
     
@@ -137,8 +136,7 @@ for i in range(100):
     Step #100 A = [[9.826107]]
     Loss = 0.69658273
     
-    
-
+<br>    
 
 ```python
 # 초기화
@@ -146,9 +144,11 @@ tf.reset_default_graph()
 sess = tf.Session()
 ```
 
+<br>
+
 ##### 확률적 비용 함수
 
-
+##### In
 ```python
 # 모델의 데이터, 플레이스홀더, 변수 선언
 x_vals = np.random.normal(1, 0.1, 100)
@@ -191,7 +191,7 @@ for i in range(100):
         print('Loss = ' + str(temp_loss))
         loss_stochastic.append(temp_loss)
 ```
-
+##### Out
     Step #5 A = [2.1385465]
     Loss = 60.738655
     Step #10 A = [3.5388422]
@@ -232,21 +232,22 @@ for i in range(100):
     Loss = 2.7797375
     Step #100 A = [9.812989]
     Loss = 2.7802463
-    
+ 
+<br>
 
 ##### 시각화
 
-
+##### In
 ```python
 plt.plot(range(0, 100, 5), loss_stochastic, 'b-', label='Stochactic Loss')
 plt.plot(range(0, 100, 5), loss_batch, 'r--', label='Batch Loss, size=20')
 plt.legend(loc='upper right', prop={'size':11})
 plt.show()
 ```
+##### Out
+![png](png/06_output_14_0.png)
 
-
-![png](output_14_0.png)
-
+<br>
 
 <table>
     <tr> <td>학습 유형</td> <td>장점</td> <td>단점</td> </tr>
@@ -254,9 +255,11 @@ plt.show()
     <tr> <td>일괄</td> <td>최솟값을 더 빨리 찾아낸다.</td> <td>계산을 위한 자원이 더 많이 필요하다.</td> </tr>
 </table>
 
+<br>
+
 ### 모든 요소 조합
 
-
+##### In
 ```python
 # 데이터 로드
 from sklearn import datasets
@@ -302,15 +305,16 @@ for i in range(1000):
     if (i+1) % 200 == 0:
         print('Step #' + str(i+1) + ' A = ' + str(sess.run(A)) + ', b = ' + str(sess.run(b)))
 ```
-
+##### Out
     Step #200 A = [[8.616538]], b = [[-3.4253418]]
     Step #400 A = [[10.110376]], b = [[-4.7298837]]
     Step #600 A = [[11.113556]], b = [[-5.4402413]]
     Step #800 A = [[11.868018]], b = [[-5.8714004]]
     Step #1000 A = [[12.452268]], b = [[-6.2674046]]
     
+<br>
 
-
+##### In
 ```python
 [[slope]] = sess.run(A)
 [[intercept]] = sess.run(b)
@@ -338,7 +342,6 @@ plt.ylabel('Petal Width')
 plt.legend(loc='lower right')
 plt.show()
 ```
-
-
-![png](output_18_0.png)
+##### Out
+![png](png/06_output_18_0.png)
 
