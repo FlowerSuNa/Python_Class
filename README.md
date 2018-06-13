@@ -36,3 +36,5 @@
 03 [활성화 함수 구현](TensorFlow/tensorflow_03.md) <br>
 04 [비용 함수 구현](TensorFlow/tensorflow_04.md) <br>
 05 [역전파 구현](TensorFlow/tensorflow_05.md) <br>
+06 [일괄 학습과 확률적 학습](TensorFlow/tensorflow_06.md) <br>
+07 [모델 ](TensorFlow/tensorflow_07.md) <br>
