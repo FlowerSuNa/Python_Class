@@ -138,8 +138,8 @@ for i in range(100):
     
 <br>    
 
+##### 초기화
 ```python
-# 초기화
 tf.reset_default_graph()
 sess = tf.Session()
 ```
