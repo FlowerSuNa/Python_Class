@@ -13,7 +13,7 @@
 
 ## Pandas
 01 [Series, DataFrame, Index](Pandas/Pandas_01.md) <br>
-02 [데이터 인덱싱과 ](Pandas/Pandas_02.md) <br>
+02 [데이터 인덱싱과 선택](Pandas/Pandas_02.md) <br>
 03 [누락된 데이터 처리](Pandas/Pandas_03.md) <br>
 
 <br>
@@ -37,4 +37,4 @@
 04 [비용 함수 구현](TensorFlow/tensorflow_04.md) <br>
 05 [역전파 구현](TensorFlow/tensorflow_05.md) <br>
 06 [일괄 학습과 확률적 학습](TensorFlow/tensorflow_06.md) <br>
-07 [모델 ](TensorFlow/tensorflow_07.md) <br>
+07 [모델 평가](TensorFlow/tensorflow_07.md) <br>
