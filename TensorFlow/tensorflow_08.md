@@ -1,7 +1,7 @@
 
 # TensorFlow
 
-참고 : TensorFlow Machine Learning Cookbook
+##### 참고 : TensorFlow Machine Learning Cookbook
 
 
 ```python
@@ -9,19 +9,16 @@ import tensorflow as tf
 sess = tf.Session()
 ```
 
-    C:\Users\GIGABYTE\Anaconda3\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-      from ._conv import register_converters as _register_converters
-    
-
-
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 ```
 
+<br>
+
 ### 역행렬 기법 사용
 
-
+##### In
 ```python
 # 데이터 생성
 x_vals = np.linspace(0, 10, 100)
@@ -49,12 +46,13 @@ y_intercept = solution_eval[1][0]
 print('slope : ' + str(slope))
 print('y_intercept : ' + str(y_intercept))
 ```
-
+##### Out
     slope : 0.9939618854759237
     y_intercept : -0.06275300609190762
     
+<br>
 
-
+##### In
 ```python
 best_fit = []
 
@@ -66,11 +64,10 @@ plt.plot(x_vals, best_fit, 'r-', label='Best fit line', linewidth=3)
 plt.legend(loc='upper left')
 plt.show()
 ```
+##### Out
+![png](png/08_output_6_0.png)
 
-
-![png](output_6_0.png)
-
-
+<br>
 
 ```python
 # 초기화
@@ -79,9 +76,11 @@ ops.reset_default_graph()
 sess = tf.Session()
 ```
 
+<br>
+
 ### 행렬 분해 기법 구현
 
-
+##### In
 ```python
 # 데이터 생성
 x_vals = np.linspace(0, 10, 100)
@@ -111,12 +110,13 @@ y_intercept = solution_eval[1][0]
 print('slope : ' + str(y_intercept))
 print('y_intercept : ' + str(y_intercept))
 ```
-
+##### Out
     slope : -0.03032436149646409
     y_intercept : -0.03032436149646409
     
+<br>
 
-
+##### In
 ```python
 best_fit = []
 
@@ -128,14 +128,15 @@ plt.plot(x_vals, best_fit, 'r-', label='Best fit line', linewidth=3)
 plt.legend(loc='upper left')
 plt.show()
 ```
+##### Out
+![png](png/08_output_10_0.png)
 
-
-![png](output_10_0.png)
-
+<br>
 
 > 역행렬 기법은 행렬이 클 때 과정이 비효율적일 수 있다. <br>
 > 행렬을 분해하고 분해된 행렬을 대상으로 연산하면 훨씬 더 효율적이고 안정적으로 수치 계산을 할 수 있다.
 
+<br>
 
 ```python
 # 초기화
@@ -144,9 +145,11 @@ ops.reset_default_graph()
 sess = tf.Session()
 ```
 
+<br>
+
 ### 텐서플로의 선형 회귀 방식
 
-
+##### In
 ```python
 # 데이터 로드
 from sklearn import datasets
@@ -192,7 +195,7 @@ for i in range(100):
         print('Step #' + str(i+1) + ' A = ' + str(sess.run(A)) + ' b = ' + str(sess.run(b)))
         print('Loss = ' + str(temp_loss) + '\n')
 ```
-
+##### Out
     Step #25 A = [[2.8339772]] b = [[2.0028412]]
     Loss = 1.748163
     
@@ -205,9 +208,9 @@ for i in range(100):
     Step #100 A = [[1.2747734]] b = [[4.1669717]]
     Loss = 0.325887
     
-    
+<br>    
 
-
+##### In
 ```python
 [slope] = sess.run(A)
 [y_intercept] = sess.run(b)
@@ -224,12 +227,12 @@ plt.xlabel('Petal Width')
 plt.ylabel('Sepal Length')
 plt.show()
 ```
+##### Out
+![png](png/08_output_15_0.png)
 
+<br>
 
-![png](output_15_0.png)
-
-
-
+##### In
 ```python
 plt.plot(loss_vec, 'k-')
 plt.title('L2 Loss per Generation')
@@ -237,10 +240,10 @@ plt.xlabel('Generation')
 plt.ylabel('L2 Loss')
 plt.show()
 ```
+##### Out
+![png](png/08_output_16_0.png)
 
-
-![png](output_16_0.png)
-
+<br>
 
 > 찾아낸 직선이 가장 적합한 직선이라는 보장이 없다. 
 > 최적 직선 수렴 상태는 학습 반복 획수, 일괄 작업 크기, 학습률, 비용 함수에 영향을 받는다. 
