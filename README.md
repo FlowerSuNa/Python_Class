@@ -43,4 +43,4 @@
 
 ##### 선형 회귀
 01 [역행렬 기법 사용, 행렬 분해 기법 구현](TensorFlow/tensorflow_08.md) <br>
-02 [선형 회귀 방식, 선형 회귀의 비용 ](TensorFlow/tensorflow_09.md) <br>
+02 [선형 회귀 방식, 선형 회귀의 비용 함수](TensorFlow/tensorflow_09.md) <br>
