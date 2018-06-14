@@ -19,6 +19,7 @@
 <br>
 
 ## Scikit-Learn
+##### 지도 학습
 01 [K-Nearest Neighbors](Scikit-Learn/MachineLearning_K_Nearest_Neighbors.md) <br>
 02 [Linear Regression, Ridge, Lasso](Scikit-Learn/MachineLearning_Linear.md) <br>
 03 [Logistic Regression](Scikit-Learn/MachineLearning_Logistic_Regression.md) <br>
@@ -27,6 +28,7 @@
 06 [Decision Tree](Scikit-Learn/MachineLearning_Decision_Tree.md) <br>
 07 [Random Forest](Scikit-Learn/MachineLearning_Random_Forest.md) <br>
 08 [Gradient Boosting](Scikit-Learn/MachineLearning_Gradient_Boosting.md) <br>
+##### 비지도 학습
 
 <br>
 
@@ -38,3 +40,7 @@
 05 [역전파 구현](TensorFlow/tensorflow_05.md) <br>
 06 [일괄 학습과 확률적 학습](TensorFlow/tensorflow_06.md) <br>
 07 [모델 평가](TensorFlow/tensorflow_07.md) <br>
+
+##### 선형 회귀
+01 [역행렬 기법 사용, 행렬 분해 기법 구현](TensorFlow/tensorflow_08.md) <br>
+02 [선형 회귀 방식, 선형 회귀의 비용 ](TensorFlow/tensorflow_09.md) <br>
