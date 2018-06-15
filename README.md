@@ -44,3 +44,7 @@
 ##### 선형 회귀
 01 [역행렬 기법 사용, 행렬 분해 기법 구현](TensorFlow/tensorflow_08.md) <br>
 02 [선형 회귀 방식, 선형 회귀의 비용 함수](TensorFlow/tensorflow_09.md) <br>
+03 [데밍 회귀 구현](TensorFlow/tensorflow_10.md) <br>
+04 [라소 회귀 및 리지 회귀 구현](TensorFlow/tensorflow_11.md) <br>
+05 [일래스틱 넷 회귀 구현](TensorFlow/tensorflow_12.md) <br>
+06 [로지스틱 회귀 구현](TensorFlow/tensorflow_13.md) <br>
