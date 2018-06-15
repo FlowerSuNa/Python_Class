@@ -1,7 +1,7 @@
 
 # TensorFlow
 
-참고 : TensorFlow Machine Learning Cookbook
+##### 참고 : TensorFlow Machine Learning Cookbook
 
 
 ```python
@@ -9,21 +9,19 @@ import tensorflow as tf
 sess = tf.Session()
 ```
 
-    C:\Users\GIGABYTE\Anaconda3\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-      from ._conv import register_converters as _register_converters
-    
-
-
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 ```
+
+<br>
 
 ### 라소 회귀 및 리지 회귀 구현
 > 규칙화 : 계수가 회귀 출력 값에 미치는 영향을 제한하는 방식 <br>
 > 라소 회귀와 리지 회귀는 기울기를 제한하는 규칙화 항이 식에 추가된다. <br>
 > 규칙화 항을 두는 이유 중 하나는 한 속성이 종속 변수에 주는 영향에 제한을 두고자 하는 것이다. <br>
 
+<br>
 
 ```python
 def training(x_vals, y_vals, loss, batch_size):
@@ -76,9 +74,11 @@ def loss_viz(loss_vec):
     plt.show()
 ```
 
+<br>
+
 ##### 라소 회귀
 
-
+##### In
 ```python
 # 데이터 로드
 from sklearn import datasets
@@ -107,7 +107,7 @@ loss = tf.add(tf.reduce_mean(tf.square(y_target - model_output)), regularization
 
 A, b, loss_vec = training(x_vals, y_vals, loss, batch_size)
 ```
-
+##### Out
     Step #300 A = [[0.7658069]] b = [[2.5444891]]
     Loss = [[2.5444891]]
     
@@ -123,29 +123,29 @@ A, b, loss_vec = training(x_vals, y_vals, loss, batch_size)
     Step #1500 A = [[0.72475827]] b = [[4.7411146]]
     Loss = [[4.7411146]]
     
-    
+<br>    
 
-
+##### In
 ```python
 viz(x_vals, y_vals, A, b)
 ```
+##### Out
+![png](png/11_output_8_0.png)
 
+<br>
 
-![png](output_8_0.png)
-
-
-
+##### In
 ```python
 loss_viz(loss_vec)
 ```
+##### Out
+![png](png/11_output_9_0.png)
 
-
-![png](output_9_0.png)
-
+<br>
 
 ##### 리지 회귀
 
-
+##### In
 ```python
 # 데이터 로드
 from sklearn import datasets
@@ -173,7 +173,7 @@ loss = tf.expand_dims(tf.add(tf.reduce_mean(tf.square(y_target - model_output)),
 
 A, b, loss_vec = training(x_vals, y_vals, loss, batch_size)
 ```
-
+##### Out
     Step #300 A = [[1.0902046]] b = [[3.2255619]]
     Loss = [[3.2255619]]
     
@@ -189,22 +189,21 @@ A, b, loss_vec = training(x_vals, y_vals, loss, batch_size)
     Step #1500 A = [[0.66675085]] b = [[4.71946]]
     Loss = [[4.71946]]
     
-    
+<br>    
 
-
+##### In
 ```python
 viz(x_vals, y_vals, A, b)
 ```
+##### Out
+![png](png/11_output_12_0.png)
 
+<br>
 
-![png](output_12_0.png)
-
-
-
+##### In
 ```python
 loss_viz(loss_vec)
 ```
-
-
-![png](output_13_0.png)
+##### Out
+![png](png/11_output_13_0.png)
 
