@@ -1,7 +1,7 @@
 
 # TensorFlow
 
-참고 : TensorFlow Machine Learning Cookbook
+##### 참고 : TensorFlow Machine Learning Cookbook
 
 
 ```python
@@ -9,21 +9,20 @@ import tensorflow as tf
 sess = tf.Session()
 ```
 
-    C:\Users\GIGABYTE\Anaconda3\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-      from ._conv import register_converters as _register_converters
-    
-
-
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 ```
 
+<br>
+
 ### 데밍 회귀 구현
 > 최소 제곱 값 선형 회귀가 직선까지의 수직 거리를 최소화하는 반면, 데밍 회귀는 직선까지의 전체 거리를 최소화한다. <br>
 > y 값과 x 값의 오차를 같이 최소화한다.
 
+<br>
 
+##### In
 ```python
 # 데이터 로드
 from sklearn import datasets
@@ -73,7 +72,7 @@ for i in range(250):
         print('Step #' + str(i+1) + ' A = ' + str(sess.run(A)) + ' b = ' + str(sess.run(b)))
         print('Loss = ' + str(temp_loss) + '\n')
 ```
-
+##### Out
     Step #50 A = [[-3.9403138]] b = [[1.1894909]]
     Loss = 2.4091523
     
@@ -89,9 +88,9 @@ for i in range(250):
     Step #250 A = [[-5.834271]] b = [[4.9899683]]
     Loss = 1.2291313
     
-    
+<br>    
 
-
+##### In
 ```python
 [slope] = sess.run(A)
 [y_intercept] = sess.run(b)
@@ -108,12 +107,12 @@ plt.xlabel('Petal Width')
 plt.ylabel('Sepal Length')
 plt.show()
 ```
+##### Out
+![png](png/10_output_6_0.png)
 
+<br>
 
-![png](output_6_0.png)
-
-
-
+##### In
 ```python
 plt.plot(loss_vec, 'k-')
 plt.title('Loss per Generation')
@@ -121,7 +120,7 @@ plt.xlabel('Generation')
 plt.ylabel('Loss')
 plt.show()
 ```
+##### Out
 
-
-![png](output_7_0.png)
+![png](png/10_output_7_0.png)
 
