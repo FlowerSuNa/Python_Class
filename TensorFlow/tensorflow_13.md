@@ -539,8 +539,9 @@ plt.show()
 ##### Out
 ![png](png/13_output_13_0.png)
 
+<br>
 
-
+##### In
 ```python
 plt.plot(train_acc, 'k-', label='Train Set Accuracy')
 plt.plot(test_acc, 'r--', label='Test Set Accuracy')
@@ -550,7 +551,6 @@ plt.ylabel('Accuracy')
 plt.legend(loc='lower right')
 plt.show()
 ```
-
-
-![png](output_14_0.png)
+##### Out
+![png](png/13_output_14_0.png)
 
