@@ -1,7 +1,7 @@
 
 # TensorFlow
 
-참고 : TensorFlow Machine Learning Cookbook
+##### 참고 : TensorFlow Machine Learning Cookbook
 
 
 ```python
@@ -9,23 +9,22 @@ import tensorflow as tf
 sess = tf.Session()
 ```
 
-    C:\Users\GIGABYTE\Anaconda3\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-      from ._conv import register_converters as _register_converters
-    
-
-
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 ```
 
+<br>
+
 ### 로지스틱 회귀 구현
 > 선형 회귀를 이진 분류를 바꾸는 방법이다. <br>
 > 선형 회귀 결과 값을 시그모이드 함수에 넣어 0과 1 사이의 값으로 출력하여 분류한다.
 
+<br>
+
 ##### 데이터 로드
 
-
+##### In
 ```python
 # 데이터 로드
 import requests
@@ -37,10 +36,7 @@ birth_file = requests.get(birthdata_url)
 birth_data = birth_file.text.split('\r\n')
 birth_data
 ```
-
-
-
-
+##### Out
     ['LOW\tAGE\tLWT\tRACE\tSMOKE\tPTL\tHT\tUI\tBWT',
      '1\t28\t113\t1\t1\t1\t0\t1\t709',
      '1\t29\t130\t0\t0\t0\t0\t1\t1021',
@@ -234,30 +230,24 @@ birth_data
      '',
      '']
 
+<br>
 
-
-
+##### In
 ```python
 birth_header = birth_data[0].split('\t')
 birth_header
 ```
-
-
-
-
+##### Out
     ['LOW', 'AGE', 'LWT', 'RACE', 'SMOKE', 'PTL', 'HT', 'UI', 'BWT']
 
+<br>
 
-
-
+##### In
 ```python
 birth_data = [[float(x) for x in y.split('\t') if len(x) >= 1] for y in birth_data[1:] if len(y) >= 1]
 birth_data
 ```
-
-
-
-
+##### Out
     [[1.0, 28.0, 113.0, 1.0, 1.0, 1.0, 0.0, 1.0, 709.0],
      [1.0, 29.0, 130.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1021.0],
      [1.0, 34.0, 187.0, 1.0, 1.0, 0.0, 1.0, 0.0, 1135.0],
@@ -448,17 +438,18 @@ birth_data
      [0.0, 24.0, 216.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4593.0],
      [0.0, 45.0, 123.0, 0.0, 0.0, 1.0, 0.0, 0.0, 4990.0]]
 
-
-
+<br>
 
 ```python
 x_vals = np.array([x[1:8] for x in birth_data])
 y_vals = np.array([x[0] for x in birth_data])
 ```
 
+<br>
+
 ##### 구현
 
-
+##### In
 ```python
 # 데이터 분할
 train_indices = np.random.choice(len(x_vals), round(len(x_vals) * 0.8), replace=False)
@@ -526,17 +517,18 @@ for i in range(1500):
     if (i+1) % 300 == 0:
         print('Loss = ' + str(temp_loss))
 ```
-
+##### Out
     Loss = 0.69541323
     Loss = 0.7177138
     Loss = 0.5790775
     Loss = 0.58325326
     Loss = 0.57728076
     
+<br>
 
 ##### 정확도 그래프
 
-
+##### In
 ```python
 plt.plot(loss_vec, 'k-')
 plt.title('Cross Entropy Loss per Generation')
@@ -544,9 +536,8 @@ plt.xlabel('Generation')
 plt.ylabel('Cross Entropy Loss')
 plt.show()
 ```
-
-
-![png](output_13_0.png)
+##### Out
+![png](png/13_output_13_0.png)
 
 
 
