@@ -1,7 +1,7 @@
 
 # TensorFlow
 
-참고 : TensorFlow Machine Learning Cookbook
+##### 참고 : TensorFlow Machine Learning Cookbook
 
 
 ```python
@@ -9,20 +9,19 @@ import tensorflow as tf
 sess = tf.Session()
 ```
 
-    C:\Users\GIGABYTE\Anaconda3\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-      from ._conv import register_converters as _register_converters
-    
-
-
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 ```
 
+<br>
+
 ### 일래스틱 넷 회귀 구현
 > 비용 함수에 L1, L2 규칙화 항에 추가하는 방식을 이용해 라소 회귀와 리지 회귀를 결합한 회귀 유형이다.
 
+<br>
 
+##### In
 ```python
 # 데이터 로드
 from sklearn import datasets
@@ -79,7 +78,7 @@ for i in range(1000):
         print('Step #' + str(i+1) + 'A = '+ str(sess.run(A)) + ' b = ' + str(sess.run(b)))
         print('Loss = ' + str(temp_loss) + '\n')
 ```
-
+##### Out
     Step #250A = [[0.17495765]
      [0.6750849 ]
      [0.838713  ]] b = [[-0.57810956]]
@@ -100,9 +99,9 @@ for i in range(1000):
      [0.31006095]] b = [[-0.40017408]]
     Loss = [0.81497014]
     
-    
+<br>    
 
-
+##### In
 ```python
 plt.plot(loss_vec, 'k-')
 plt.title('Loss per Generation')
@@ -110,7 +109,6 @@ plt.xlabel('Generation')
 plt.ylabel('Loss')
 plt.show()
 ```
-
-
-![png](output_6_0.png)
+##### Out
+![png](png/12_output_6_0.png)
 
