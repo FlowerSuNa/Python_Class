@@ -32,10 +32,8 @@ iris = datasets.load_iris()
 
 x_vals = np.array([x[3] for x in iris.data])
 y_vals = np.array([y[0] for y in iris.data])
-```
 
 
-```python
 # 데이터 분할
 train_indices = np.random.choice(len(x_vals), round(len(x_vals)*0.8), replace=False)
 test_indices = np.array(list(set(range(len(x_vals))) - set(train_indices)))
@@ -44,53 +42,39 @@ x_vals_train = x_vals[train_indices]
 x_vals_test = x_vals[test_indices]
 y_vals_train = y_vals[train_indices]
 y_vals_test = y_vals[test_indices]
-```
 
 
-```python
 # 일괄 작업 크기 선언
 batch_size = 50
-```
 
 
-```python
 # 플레이스홀더 및 변수 선언
 x_data = tf.placeholder(shape=[None,1], dtype=tf.float32)
 y_target = tf.placeholder(shape=[None,1], dtype=tf.float32)
 
 A = tf.Variable(tf.random_normal(shape=[1,1]))
 b = tf.Variable(tf.random_normal(shape=[1,1]))
-```
 
 
-```python
 # 선형 모델 생성
 model_output = tf.add(tf.matmul(x_data, A), b)
-```
 
 
-```python
 # 비용 함수 선언
 epsilon = tf.constant([0.5])
 loss = tf.reduce_mean(tf.maximum(0., tf.subtract(tf.abs(tf.subtract(model_output, y_target)), epsilon)))
-```
 
 
-```python
 # 최적화 함수 생성
 my_opt = tf.train.GradientDescentOptimizer(0.075)
 train_step = my_opt.minimize(loss)
-```
 
 
-```python
 # 변수 초기화
 init = tf.global_variables_initializer()
 sess.run(init)
-```
 
 
-```python
 # 학습
 train_loss = []
 test_loss = []
@@ -117,24 +101,24 @@ for i in range(200):
 
     -----------------------------------
     Generation : 50
-    A = [[2.4878378]] , b = [[2.2555504]]
-    Train Loss = 0.7696482
-    Test Loss = 0.66159683
+    A = [[2.278633]] , b = [[2.5817409]]
+    Train Loss = 0.61779404
+    Test Loss = 0.6575619
     -----------------------------------
     Generation : 100
-    A = [[1.8965379]] , b = [[3.3115501]]
-    Train Loss = 0.38803938
-    Test Loss = 0.32972005
+    A = [[1.683433]] , b = [[3.577741]]
+    Train Loss = 0.26626378
+    Test Loss = 0.32205105
     -----------------------------------
     Generation : 150
-    A = [[1.3979377]] , b = [[4.0810494]]
-    Train Loss = 0.15786439
-    Test Loss = 0.09821231
+    A = [[1.331533]] , b = [[4.2557406]]
+    Train Loss = 0.11080063
+    Test Loss = 0.1603795
     -----------------------------------
     Generation : 200
-    A = [[1.1085871]] , b = [[4.4635496]]
-    Train Loss = 0.099039905
-    Test Loss = 0.053700957
+    A = [[1.1267828]] , b = [[4.4657397]]
+    Train Loss = 0.086844705
+    Test Loss = 0.1055491
     
 
 
@@ -151,10 +135,8 @@ for i in x_vals:
     best_fit.append(slope * i + y_intercept)
     best_fit_upper.append(slope * i + y_intercept + width)
     best_fit_lower.append(slope * i + y_intercept - width)
-```
-
-
-```python
+    
+    
 plt.plot(x_vals, y_vals, 'o', label='Data Points')
 plt.plot(x_vals, best_fit, 'r-', label='SVM Regression Line', linewidth=3)
 plt.plot(x_vals, best_fit_upper, 'r--', linewidth=2)
@@ -168,7 +150,7 @@ plt.show()
 ```
 
 
-![png](output_15_0.png)
+![png](output_6_0.png)
 
 
 
@@ -183,5 +165,5 @@ plt.show()
 ```
 
 
-![png](output_16_0.png)
+![png](output_7_0.png)
 

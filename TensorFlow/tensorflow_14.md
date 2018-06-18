@@ -32,10 +32,7 @@ iris = datasets.load_iris()
 
 x_vals = np.array([[x[0], x[3]] for x in iris.data])
 y_vals = np.array([1 if y==0 else -1 for y in iris.target])
-```
 
-
-```python
 # 데이터 분할
 train_indices = np.random.choice(len(x_vals), round(len(x_vals)*0.8), replace=False)
 test_indices = np.array(list(set(range(len(x_vals))) - set(train_indices)))
@@ -44,55 +41,34 @@ x_vals_train = x_vals[train_indices]
 x_vals_test = x_vals[test_indices]
 y_vals_train = y_vals[train_indices]
 y_vals_test = y_vals[test_indices]
-```
 
-
-```python
 # 일괄 작업 크기 선언
 batch_size = 100
-```
 
-
-```python
 # 플레이스홀더 및 변수 선언
 x_data = tf.placeholder(shape=[None,2], dtype=tf.float32)
 y_target = tf.placeholder(shape=[None,1], dtype=tf.float32)
 A = tf.Variable(tf.random_normal(shape=[2,1]))
 b = tf.Variable(tf.random_normal(shape=[1,1]))
-```
 
-
-```python
 # 모델 출력 값 선언
 model_output = tf.subtract(tf.matmul(x_data, A), b)
-```
 
-
-```python
 # 비용 함수 선언
 l2_norm = tf.reduce_sum(tf.square(A))
 alpha = tf.constant([0.01])
 
 classification_term = tf.reduce_mean(tf.maximum(0., tf.subtract(1., tf.multiply(model_output, y_target))))
 loss = tf.add(classification_term, tf.multiply(alpha, l2_norm))
-```
 
-
-```python
 # 최적화 함수 선언
 my_opt = tf.train.GradientDescentOptimizer(0.01)
 train_step = my_opt.minimize(loss)
-```
 
-
-```python
 # 변수 초기화
 init = tf.global_variables_initializer()
 sess.run(init)
-```
 
-
-```python
 # 학습
 prediction = tf.sign(model_output)
 accuracy =  tf.reduce_mean(tf.cast(tf.equal(prediction, y_target), tf.float32))
@@ -121,25 +97,25 @@ for i in range(500):
         print('Loss = {}\n'.format(str(temp_loss)))
 ```
 
-    Step #100 A=[[ 6.0637435e-04]
-     [-7.6941919e-01]], b=[[-0.06852062]]
-    Loss = [0.42902255]
+    Step #100 A=[[ 0.16355939]
+     [-1.1785392 ]], b=[[0.25843883]]
+    Loss = [0.35358462]
     
-    Step #200 A=[[ 0.06180703]
-     [-0.99984956]], b=[[-0.12782063]]
-    Loss = [0.36587998]
+    Step #200 A=[[ 0.19314183]
+     [-1.4308051 ]], b=[[0.1933387]]
+    Loss = [0.14454354]
     
-    Step #300 A=[[ 0.09287994]
-     [-1.2332495 ]], b=[[-0.1847206]]
-    Loss = [0.24908747]
+    Step #300 A=[[ 0.263083 ]
+     [-1.6720024]], b=[[0.11993872]]
+    Loss = [0.16608778]
     
-    Step #400 A=[[ 0.14731026]
-     [-1.4562739 ]], b=[[-0.2452206]]
-    Loss = [0.23342709]
+    Step #400 A=[[ 0.26381195]
+     [-1.8699377 ]], b=[[0.0687387]]
+    Loss = [0.1477067]
     
-    Step #500 A=[[ 0.1837704]
-     [-1.6766266]], b=[[-0.3043205]]
-    Loss = [0.14646104]
+    Step #500 A=[[ 0.28062963]
+     [-1.9986448 ]], b=[[0.02493868]]
+    Loss = [0.14060214]
     
     
 
@@ -161,10 +137,7 @@ setosa_x = [d[1] for i, d in enumerate(x_vals) if y_vals[i] == 1]
 setosa_y = [d[0] for i, d in enumerate(x_vals) if y_vals[i] == 1]
 non_setosa_x = [d[1] for i, d in enumerate(x_vals) if y_vals[i] == -1]
 non_setosa_y = [d[0] for i, d in enumerate(x_vals) if y_vals[i] == -1]
-```
 
-
-```python
 plt.plot(setosa_x , setosa_y, 'o', label='I. setosa')
 plt.plot(non_setosa_x, non_setosa_y, 'x', label='Non-setosa')
 plt.plot(x1_vals, best_fit, 'r-', label='Linear Separator', linewidth=3)
@@ -177,7 +150,7 @@ plt.show()
 ```
 
 
-![png](output_16_0.png)
+![png](output_7_0.png)
 
 
 
@@ -192,7 +165,7 @@ plt.show()
 ```
 
 
-![png](output_17_0.png)
+![png](output_8_0.png)
 
 
 
@@ -205,7 +178,7 @@ plt.show()
 ```
 
 
-![png](output_18_0.png)
+![png](output_9_0.png)
 
 
 > SVM 회귀는 직관적으로 직선의 2e 폭이 마진 안에 가능한 한 많은 점을 포함시키는 함수를 찾는 과정이라고 할 수 있다. 

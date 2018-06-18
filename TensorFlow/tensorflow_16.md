@@ -37,26 +37,20 @@ class1_x = [x[0] for i, x in enumerate(x_vals) if y_vals[i]==1]
 class1_y = [x[1] for i, x in enumerate(x_vals) if y_vals[i]==1]
 class2_x = [x[0] for i, x in enumerate(x_vals) if y_vals[i]==-1]
 class2_y = [x[1] for i, x in enumerate(x_vals) if y_vals[i]==-1]
-```
 
 
-```python
 # 일괄 작업 크기 선언
 # - SVM에서는 학습 단계마다 출렁거리지 않을 안정적인 모델을 원하기 때문에 알괄 작업 크기를 크게하는 경향이 있다.
 batch_size = 350
-```
 
 
-```python
 # 플레이스홀더 및 변수 선언
 x_data = tf.placeholder(shape=[None,2], dtype=tf.float32)
 y_target = tf.placeholder(shape=[None,1],dtype=tf.float32)
 prediction_grid = tf.placeholder(shape=[None,2], dtype=tf.float32)
 b = tf.Variable(tf.random_normal(shape=[1,batch_size]))
-```
 
 
-```python
 # 가우시안 커널 생성
 gamma = tf.constant(-50.0)
 dist = tf.reduce_sum(tf.square(x_data), 1)
@@ -66,20 +60,16 @@ my_kernel = tf.exp(tf.multiply(gamma, tf.abs(sq_dists)))
 
 # Linear
 # my_kernel = tf.matmul(x_data, tf.transpose(x_data))
-```
 
 
-```python
 # 이중 최적화 문제 선언
 first_term = tf.reduce_sum(b)
 b_vec_cross = tf.matmul(tf.transpose(b), b)
 y_target_cross = tf.matmul(y_target, tf.transpose(y_target))
 second_term = tf.reduce_sum(tf.multiply(my_kernel, tf.multiply(b_vec_cross, y_target_cross)))
 loss = tf.negative(tf.subtract(first_term, second_term))
-```
 
 
-```python
 # 예측 커널 생성
 rA = tf.reshape(tf.reduce_sum(tf.square(x_data), 1), [-1,1])
 rB = tf.reshape(tf.reduce_sum(tf.square(prediction_grid), 1), [-1,1])
@@ -93,25 +83,18 @@ pred_kernel = tf.exp(tf.multiply(gamma, tf.abs(pred_sq_dist)))
 prediction_output = tf.matmul(tf.multiply(tf.transpose(y_target), b), pred_kernel)
 prediction = tf.sign(prediction_output - tf.reduce_mean(prediction_output))
 accuracy = tf.reduce_mean(tf.cast(tf.equal(tf.squeeze(prediction), tf.squeeze(y_target)), tf.float32))
-```
 
 
-```python
 # 최적화 함수 생성
 my_opt = tf.train.GradientDescentOptimizer(0.002)
 train_step = my_opt.minimize(loss)
 
-```
 
-
-```python
 # 변수 초기화
 init = tf.global_variables_initializer()
 sess.run(init)
-```
 
 
-```python
 # 학습
 loss_vec = []
 batch_acc = []
@@ -134,22 +117,21 @@ for i in range(1000):
 ```
 
     Step #250
-    Loss = 33.357956
+    Loss = 42.902096
     
     Step #500
-    Loss = -2.9678326
+    Loss = -6.3217106
     
     Step #750
-    Loss = -9.814764
+    Loss = -11.30212
     
     Step #1000
-    Loss = -11.411267
+    Loss = -12.009345
     
     
 
 
 ```python
-# 예측
 x_min, x_max = x_vals[:,0].min() - 1, x_vals[:,0].max() + 1
 y_min, y_max = x_vals[:,1].min() - 1, x_vals[:,1].max() + 1
 xx, yy = np.meshgrid(np.arange(x_min, x_max, 0.02), np.arange(y_min, y_max, 0.02))
@@ -159,10 +141,8 @@ grid_points = np.c_[xx.ravel(), yy.ravel()]
                                                      y_target:rand_y, 
                                                      prediction_grid:grid_points})
 grid_predictions = grid_predictions.reshape(xx.shape)
-```
 
 
-```python
 plt.contourf(xx, yy, grid_predictions, cmap=plt.cm.Paired, alpha=0.8)
 plt.plot(class1_x, class1_y, 'ro', label='Class 1')
 plt.plot(class2_x, class2_y, 'kx', label='Class -1')
@@ -176,7 +156,7 @@ plt.show()
 ```
 
 
-![png](output_16_0.png)
+![png](output_7_0.png)
 
 
 
@@ -190,7 +170,7 @@ plt.show()
 ```
 
 
-![png](output_17_0.png)
+![png](output_8_0.png)
 
 
 
@@ -203,7 +183,7 @@ plt.show()
 ```
 
 
-![png](output_18_0.png)
+![png](output_9_0.png)
 
 
 > 가우시안 커널에는 또 하나의 매개변수 gamma가 있다. 
