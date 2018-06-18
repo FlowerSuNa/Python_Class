@@ -1,7 +1,7 @@
 
 # TensorFlow
 
-참고 : TensorFlow Machine Learning Cookbook
+##### 참고 : TensorFlow Machine Learning Cookbook
 
 
 ```python
@@ -9,24 +9,25 @@ import tensorflow as tf
 sess = tf.Session()
 ```
 
-    C:\Users\GIGABYTE\Anaconda3\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-      from ._conv import register_converters as _register_converters
-    
-
-
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 ```
 
+<br>
+
 ### 텐서플로의 커널 함수
 > 비선형 데이터를 구분하고자 한다면 데이터에 선형 구분자를 투사하는 방법을 바꿔야 한다.
 > SVM 비용 함수 커널을 변경하면 된다.
 
+<br>
+
 > ##### Linear Kernel: K(x1, x2) = t(x1) * x2
 > ##### Gaussian Kernel (RBF): K(x1, x2) = exp(-gamma * abs(x1 - x2)^2)
 
+<br>
 
+##### In
 ```python
 # 데이터 로드
 from sklearn import datasets
@@ -115,7 +116,7 @@ for i in range(1000):
         print('Step #{}'.format(str(i+1)))
         print('Loss = {}\n'.format(str(temp_loss)))
 ```
-
+##### Out
     Step #250
     Loss = 42.902096
     
@@ -128,9 +129,9 @@ for i in range(1000):
     Step #1000
     Loss = -12.009345
     
-    
+<br>    
 
-
+##### In
 ```python
 x_min, x_max = x_vals[:,0].min() - 1, x_vals[:,0].max() + 1
 y_min, y_max = x_vals[:,1].min() - 1, x_vals[:,1].max() + 1
@@ -154,12 +155,12 @@ plt.ylim([-1.5, 1.5])
 plt.xlim([-1.5, 1.5])
 plt.show()
 ```
+##### Out
+![png](png/16_output_7_0.png)
 
+<br>
 
-![png](output_7_0.png)
-
-
-
+##### In
 ```python
 plt.plot(batch_acc, 'k-', label='Accuracy')
 plt.title('Batch Accuracy')
@@ -168,12 +169,12 @@ plt.ylabel('Accuracy')
 plt.legend(loc='lower right')
 plt.show()
 ```
+##### Out
+![png](png/16_output_8_0.png)
 
+<br>
 
-![png](output_8_0.png)
-
-
-
+##### In
 ```python
 plt.plot(loss_vec, 'k-')
 plt.title('Loss per Generation')
@@ -181,10 +182,10 @@ plt.xlabel('Generation')
 plt.ylabel('Loss')
 plt.show()
 ```
+##### Out
+![png](png/16_output_9_0.png)
 
-
-![png](output_9_0.png)
-
+<br>
 
 > 가우시안 커널에는 또 하나의 매개변수 gamma가 있다. 
 > gamma는 데이터 지점이 구분 곡선에 미치는 영향도를 제어한다. 
