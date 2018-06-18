@@ -1,7 +1,7 @@
 
 # TensorFlow
 
-참고 : TensorFlow Machine Learning Cookbook
+##### 참고 : TensorFlow Machine Learning Cookbook
 
 
 ```python
@@ -9,22 +9,22 @@ import tensorflow as tf
 sess = tf.Session()
 ```
 
-    C:\Users\GIGABYTE\Anaconda3\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-      from ._conv import register_converters as _register_converters
-    
-
 
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 ```
 
+<br>
+
 ### 선형 회귀로 축소
 > 선형 회귀 최적화에도 서포트 벡터 머신을 사용할 수 있다.
 > 최대 마진 개념을 선형 회귀 최적화에 그래도 적용할 수 있다. 
 > 분류 사이를 구분하는 마진을 최대화하는 대신, 가장 많은 (x,y) 점을 포함하게 마진을 최대화 한다.
 
+<br>
 
+##### In
 ```python
 # 데이터 로드
 from sklearn import datasets
@@ -98,7 +98,7 @@ for i in range(200):
         print('Train Loss = {}'.format(str(temp_train_loss)))
         print('Test Loss = {}'.format(str(temp_test_loss)))
 ```
-
+##### Out
     -----------------------------------
     Generation : 50
     A = [[2.278633]] , b = [[2.5817409]]
@@ -120,8 +120,9 @@ for i in range(200):
     Train Loss = 0.086844705
     Test Loss = 0.1055491
     
+<br>
 
-
+##### In
 ```python
 [[slope]] = sess.run(A)
 [[y_intercept]] = sess.run(b)
@@ -148,12 +149,12 @@ plt.xlabel('Petal Width')
 plt.ylabel('Sepal Length')
 plt.show()
 ```
+##### Out
+![png](png/15_output_6_0.png)
 
+<br>
 
-![png](output_6_0.png)
-
-
-
+##### In
 ```python
 plt.plot(train_loss, 'k-', label='Train Set Loss')
 plt.plot(test_loss, 'r--', label='Test Set Loss')
@@ -163,7 +164,6 @@ plt.ylabel('L2 Loss')
 plt.legend(loc='upper right')
 plt.show()
 ```
-
-
-![png](output_7_0.png)
+##### Out
+![png](png/15_output_7_0.png)
 
