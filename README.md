@@ -48,3 +48,8 @@
 04 [라소 회귀 및 리지 회귀 구현](TensorFlow/tensorflow_11.md) <br>
 05 [일래스틱 넷 회귀 구현](TensorFlow/tensorflow_12.md) <br>
 06 [로지스틱 회귀 구현](TensorFlow/tensorflow_13.md) <br>
+
+##### 서포트 벡터 머신
+01 [선형 SVM 구현](TensorFlow/tensorflow_14.md) <br>
+02 [선형 회귀 축소](TensorFlow/tensorflow_15.md) <br>
+03 [텐서플로의 커널 함수](TensorFlow/tensorflow_16.md) <br>
