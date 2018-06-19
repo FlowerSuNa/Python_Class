@@ -53,3 +53,5 @@
 01 [선형 SVM 구현](TensorFlow/tensorflow_14.md) <br>
 02 [선형 회귀 축소](TensorFlow/tensorflow_15.md) <br>
 03 [텐서플로의 커널 함수](TensorFlow/tensorflow_16.md) <br>
+04 [비선형 SVM 구현](TensorFlow/tensorflow_17.md) <br>
+05 [다중 분류 SVM 구현](TensorFlow/tensorflow_18.md) <br>
