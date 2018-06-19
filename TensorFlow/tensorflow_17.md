@@ -1,7 +1,7 @@
 
 # TensorFlow
 
-참고 : TensorFlow Machine Learning Cookbook
+##### 참고 : TensorFlow Machine Learning Cookbook
 
 
 ```python
@@ -9,18 +9,14 @@ import tensorflow as tf
 sess = tf.Session()
 ```
 
-    C:\ProgramData\Anaconda3\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-      from ._conv import register_converters as _register_converters
-    
-
-
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 ```
 
-### 비선형 SVM 구현
+<br>
 
+### 비선형 SVM 구현
 
 ```python
 # 데이터 로드
@@ -151,7 +147,9 @@ def loss_vec(loss_vec, gamma):
     plt.ylabel('Loss')
 ```
 
+<br>
 
+##### In
 ```python
 plt.figure(figsize=(15,10))
 plt.subplot(221)
@@ -168,7 +166,7 @@ loss_vec_100, batch_acc_100 = training(x_vals, y_vals, x_data, y_target, predict
 
 plt.show()
 ```
-
+##### Out
     Gamma : 1.0
     Step #75
     Losss = -101.30425
@@ -240,12 +238,15 @@ plt.show()
     
 
 
-![png](output_7_1.png)
+![png](png/17_output_7_1.png)
 
+<br>
 
 > gamma 값이 커짐에 따라 데이터 지점이 분류 경계에 미치는 효과가 더 커진다.
 
+<br>
 
+##### In
 ```python
 plt.figure(figsize=(15,10))
 plt.subplot(221)
@@ -262,12 +263,12 @@ batch_acc(batch_acc_100, 100)
 
 plt.show()
 ```
+##### Out
+![png](png/17_output_9_0.png)
 
+<br>
 
-![png](output_9_0.png)
-
-
-
+##### In
 ```python
 plt.figure(figsize=(15,10))
 plt.subplot(221)
@@ -284,7 +285,6 @@ loss_vec(loss_vec_100, 100)
 
 plt.show()
 ```
-
-
-![png](output_10_0.png)
+##### Out
+![png](png/17_output_10_0.png)
 
