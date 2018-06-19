@@ -1,7 +1,7 @@
 
 # TensorFlow
 
-참고 : TensorFlow Machine Learning Cookbook
+##### 참고 : TensorFlow Machine Learning Cookbook
 
 
 ```python
@@ -9,19 +9,16 @@ import tensorflow as tf
 sess = tf.Session()
 ```
 
-    C:\ProgramData\Anaconda3\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-      from ._conv import register_converters as _register_converters
-    
-
-
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 ```
 
+<br>
+
 ### 다중 분류 SVM 구현
 
-
+##### In
 ```python
 # 데이터 로드
 from sklearn import datasets
@@ -118,7 +115,7 @@ for i in range(100):
         print('Step #{}'.format(str(i+1)))
         print('Loss = {}'.format(str(temp_loss)))
 ```
-
+##### Out
     Step #25
     Loss = -322.6143
     Step #50
@@ -128,8 +125,9 @@ for i in range(100):
     Step #100
     Loss = -1335.1136
     
+<br>
 
-
+##### In
 ```python
 # 예측
 x_min, x_max = x_vals[:,0].min() - 1, x_vals[:,0].max() + 1
@@ -156,12 +154,12 @@ plt.ylim([-0.5, 3.0])
 plt.xlim([3.5, 8.5])
 plt.show()
 ```
+##### Out
+![png](png/18_output_6_0.png)
 
+<br>
 
-![png](output_6_0.png)
-
-
-
+##### In
 ```python
 # 일괄 작업 정확도
 plt.plot(batch_acc, 'k-', label='Accuracy')
@@ -170,12 +168,12 @@ plt.xlabel('Accuracy')
 plt.legend(loc='lower right')
 plt.show()
 ```
+##### Out
+![png](png/18_output_7_0.png)
 
+<br>
 
-![png](output_7_0.png)
-
-
-
+##### In
 ```python
 # 비용 함수 값
 plt.plot(loss_vec, 'k-')
@@ -184,7 +182,6 @@ plt.xlabel('Generation')
 plt.ylabel('Loss')
 plt.show()
 ```
-
-
-![png](output_8_0.png)
+##### Out
+![png](png/18_output_8_0.png)
 
