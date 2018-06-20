@@ -1,7 +1,7 @@
 
 # TensorFlow
 
-참고 : TensorFlow Machine Learning Cookbook
+##### 참고 : TensorFlow Machine Learning Cookbook
 
 
 ```python
@@ -9,15 +9,12 @@ import tensorflow as tf
 sess = tf.Session()
 ```
 
-    C:\Users\GIGABYTE\Anaconda3\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-      from ._conv import register_converters as _register_converters
-    
-
-
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 ```
+
+<br>
 
 ### 최근접 이웃 알고리즘
 > 학습셋을 모델로 간주하고 새로운 점이 기존 학습셋의 점들과 얼마나 가까운지에 따라 예측한다. 
@@ -25,7 +22,9 @@ import matplotlib.pyplot as plt
 > 학습 데이터셋과 이에 해당하는 대상 값이 주어졌을 때 새로운 점에 대한 예측 값은 가장 가까운 학습 데이터셋을 이용해 구할 수 있다. 
 > 구체적인 예측 방식은 회귀를 하는지, 분휴를 하는지에 따라 달라진다.
 
+<br>
 
+##### In
 ```python
 # 데이터 로드
 import requests
@@ -107,11 +106,12 @@ for i in range(num_loops):
     
     print('Batch #{} MSE : {}'.format(str(i+1), str(np.round(batch_mse,3))))
 ```
-
+##### Out
     Batch #1 MSE : 10.665
     
+<br>
 
-
+##### In
 ```python
 bins = np.linspace(5, 50, 45)
 
@@ -123,19 +123,21 @@ plt.ylabel('Frequency')
 plt.legend(loc='upper right')
 plt.show()
 ```
+##### Out
+![png](png/19_output_6_0.png)
 
-
-![png](output_6_0.png)
-
+<br>
 
 > 어려운 일 한가지는 최적의 k값을 정하는 것이다. 
 > 여러 가지 k 값에 대해 교차 검증을 진행해 보면 확인할 수 있다. <br>
 > K-NN을 사용할 때 거리를 가중치에 반영했다.
 > 거리 제곱의 역수를 가중치로 사용하는 방법도 있다.
 
+<br>
+
 ### 혼합 거리 함수 계산
 
-
+##### In
 ```python
 # 대각 가중 행렬 생성
 weight_diagonal = x_vals.std(0)
@@ -183,11 +185,12 @@ for i in range(num_loops):
     
     print('Batch #{} MSE : {}'.format(str(i+1), str(np.round(batch_mse,3))))
 ```
-
+##### Out
     Batch #1 MSE : 10.389
     
+<br>
 
-
+##### In
 ```python
 bins = np.linspace(5, 50, 45)
 
@@ -199,7 +202,6 @@ plt.ylabel('Frequency')
 plt.legend(loc='upper right')
 plt.show()
 ```
-
-
-![png](output_10_0.png)
+##### Out
+![png](png/19_output_10_0.png)
 
