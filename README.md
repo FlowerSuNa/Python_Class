@@ -55,3 +55,6 @@
 03 [텐서플로의 커널 함수](TensorFlow/tensorflow_16.md) <br>
 04 [비선형 SVM 구현](TensorFlow/tensorflow_17.md) <br>
 05 [다중 분류 SVM 구현](TensorFlow/tensorflow_18.md) <br>
+
+##### 최근접 이웃 알고리즘
+01 [최근접 이웃 알고리즘, 혼합 거리 함수 계산](TensorFlow/tensorflow_19.md) <br>
