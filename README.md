@@ -15,6 +15,7 @@
 01 [Series, DataFrame, Index](Pandas/Pandas_01.md) <br>
 02 [데이터 인덱싱과 선택](Pandas/Pandas_02.md) <br>
 03 [누락된 데이터 처리](Pandas/Pandas_03.md) <br>
+04 [계층적 인덱싱](Pandas/Pandas_04.md) <br>
 
 <br>
 
