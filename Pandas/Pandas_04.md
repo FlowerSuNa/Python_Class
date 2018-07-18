@@ -1,7 +1,7 @@
 
 # Pandas
 
-참고 : 파이썬 데이터 사이언스 핸드북
+##### 참고 : 파이썬 데이터 사이언스 핸드북
 
 
 ```python
@@ -9,9 +9,11 @@ import numpy as np
 import pandas as pd
 ```
 
+<br>
+
 ### 계층적 인덱싱
 
-
+##### In
 ```python
 index = [('California', 2000), ('California', 2010), 
          ('New York', 2000), ('New York', 2010), 
@@ -19,25 +21,19 @@ index = [('California', 2000), ('California', 2010),
 index = pd.MultiIndex.from_tuples(index)
 index
 ```
-
-
-
-
+##### Out
     MultiIndex(levels=[['California', 'New York', 'Texas'], [2000, 2010]],
                labels=[[0, 0, 1, 1, 2, 2], [0, 1, 0, 1, 0, 1]])
 
+<br>
 
-
-
+##### In
 ```python
 populations = [38714648, 37253956, 18976457, 19378102, 20851820, 25145561]
 pop = pd.Series(populations, index=index)
 pop
 ```
-
-
-
-
+##### Out
     California  2000    38714648
                 2010    37253956
     New York    2000    18976457
@@ -46,69 +42,43 @@ pop
                 2010    25145561
     dtype: int64
 
+<br>
 
-
-
+##### In
 ```python
 pop[:,2010]
 ```
-
-
-
-
+##### Out
     California    37253956
     New York      19378102
     Texas         25145561
     dtype: int64
 
+<br>
 
-
-
+##### In
 ```python
 pop['California']
 ```
-
-
-
-
+##### Out
     2000    38714648
     2010    37253956
     dtype: int64
 
+<br>
 
-
-
+##### In
 ```python
 pop_df = pop.unstack()
 pop_df
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### In
+<table>
+    <tr>
       <th></th>
       <th>2000</th>
       <th>2010</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>California</th>
       <td>38714648</td>
@@ -124,20 +94,15 @@ pop_df
       <td>20851820</td>
       <td>25145561</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 pop_df.stack()
 ```
-
-
-
-
+##### Out
     California  2000    38714648
                 2010    37253956
     New York    2000    18976457
@@ -146,42 +111,22 @@ pop_df.stack()
                 2010    25145561
     dtype: int64
 
+<br>
 
-
-
+##### In
 ```python
 under18 = [9267089, 9284094, 4687374, 4318033, 5906301, 6879014]
 pop_df = pd.DataFrame({'total': pop, 'under18': under18})
 pop_df
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th></th>
       <th>total</th>
       <th>under18</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th rowspan="2" valign="top">California</th>
       <th>2000</th>
@@ -215,44 +160,22 @@ pop_df
       <td>25145561</td>
       <td>6879014</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 f_u18 = pop_df['under18'] / pop_df['total']
 f_u18.unstack()
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>2000</th>
       <th>2010</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>California</th>
       <td>0.239369</td>
@@ -268,47 +191,25 @@ f_u18.unstack()
       <td>0.283251</td>
       <td>0.273568</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 df = pd.DataFrame(np.random.rand(4, 2), 
                  index=[['a','a','b','b'],[1,2,1,2]],
                  columns=['data1', 'data2'])
 df
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th></th>
       <th>data1</th>
       <th>data2</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th rowspan="2" valign="top">a</th>
       <th>1</th>
@@ -331,13 +232,11 @@ df
       <td>0.492238</td>
       <td>0.891392</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 data = {('California', 2000): 33871648,
         ('California', 2010): 37253956,
@@ -347,10 +246,7 @@ data = {('California', 2000): 33871648,
         ('New York', 2010): 19378102}
 pd.Series(data)
 ```
-
-
-
-
+##### Out
     California  2000    33871648
                 2010    37253956
     New York    2000    18976457
@@ -359,74 +255,59 @@ pd.Series(data)
                 2010    25145561
     dtype: int64
 
-
+<br>
 
 ### 명시적 MultiIndex 생성자
 
-
+##### In
 ```python
 pd.MultiIndex.from_arrays([['a','a','b','b'],[1,2,1,2]])
 ```
-
-
-
-
+##### Out
     MultiIndex(levels=[['a', 'b'], [1, 2]],
                labels=[[0, 0, 1, 1], [0, 1, 0, 1]])
 
+<br>
 
-
-
+##### In
 ```python
 pd.MultiIndex.from_tuples([('a',1), ('a',2), ('b',1),('b',2)])
 ```
-
-
-
-
+##### Out
     MultiIndex(levels=[['a', 'b'], [1, 2]],
                labels=[[0, 0, 1, 1], [0, 1, 0, 1]])
 
+<br>
 
-
-
+##### In
 ```python
 pd.MultiIndex.from_product([['a','b'], [1,2]])
 ```
-
-
-
-
+##### Out
     MultiIndex(levels=[['a', 'b'], [1, 2]],
                labels=[[0, 0, 1, 1], [0, 1, 0, 1]])
 
+<br>
 
-
-
+##### In
 ```python
 pd.MultiIndex(levels=[['a','b'], [1,2]],
               labels=[[0,0,1,1,], [0,1,0,1]])
 ```
-
-
-
-
+##### Out
     MultiIndex(levels=[['a', 'b'], [1, 2]],
                labels=[[0, 0, 1, 1], [0, 1, 0, 1]])
 
-
+<br>
 
 ### MultiIndex 레벨 이름
 
-
+##### In
 ```python
 pop.index.names = ['states', 'year']
 pop
 ```
-
-
-
-
+##### Out
     states      year
     California  2000    38714648
                 2010    37253956
@@ -436,11 +317,11 @@ pop
                 2010    25145561
     dtype: int64
 
-
+<br>
 
 ### 열의 MultiIndex
 
-
+##### In
 ```python
 index = pd.MultiIndex.from_product([[2013, 2014], [1, 2]], names=['year', 'visit'])
 columns = pd.MultiIndex.from_product([['Bob', 'Guido', 'Sue'], ['HR', 'Temp']], names=['subject', 'type'])
@@ -452,30 +333,8 @@ data += 37
 health_data = pd.DataFrame(data, index=index, columns=columns)
 health_data
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead tr th {
-        text-align: left;
-    }
-
-    .dataframe thead tr:last-of-type th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
+##### Out
+<table>
     <tr>
       <th></th>
       <th>subject</th>
@@ -503,8 +362,6 @@ health_data
       <th></th>
       <th></th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th rowspan="2" valign="top">2013</th>
       <th>1</th>
@@ -543,37 +400,17 @@ health_data
       <td>28.0</td>
       <td>37.1</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 health_data['Guido']
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>type</th>
       <th>HR</th>
@@ -585,8 +422,6 @@ health_data['Guido']
       <th></th>
       <th></th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th rowspan="2" valign="top">2013</th>
       <th>1</th>
@@ -609,49 +444,38 @@ health_data['Guido']
       <td>50.0</td>
       <td>36.6</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
-
+<br>
 
 ### MultiIndex 인덱싱 및 슬라이싱
 
-
+##### In
 ```python
 pop['California', 2000]
 ```
-
-
-
-
+##### Out
     38714648
 
+<br>
 
-
-
+##### In
 ```python
 pop['California']
 ```
-
-
-
-
+##### Out
     year
     2000    38714648
     2010    37253956
     dtype: int64
 
+<br>
 
-
-
+##### In
 ```python
 pop.loc['California':'New York']
 ```
-
-
-
-
+##### Out
     states      year
     California  2000    38714648
                 2010    37253956
@@ -659,48 +483,39 @@ pop.loc['California':'New York']
                 2010    19378102
     dtype: int64
 
+<br>
 
-
-
+##### In
 ```python
 pop[:, 2000]
 ```
-
-
-
-
+##### Out
     states
     California    38714648
     New York      18976457
     Texas         20851820
     dtype: int64
 
+<br>
 
-
-
+##### In
 ```python
 pop[pop > 22000000]
 ```
-
-
-
-
+##### Out
     states      year
     California  2000    38714648
                 2010    37253956
     Texas       2010    25145561
     dtype: int64
 
+<br>
 
-
-
+##### In
 ```python
 pop[['California', 'Texas']]
 ```
-
-
-
-
+##### Out
     states      year
     California  2000    38714648
                 2010    37253956
@@ -708,16 +523,13 @@ pop[['California', 'Texas']]
                 2010    25145561
     dtype: int64
 
+<br>
 
-
-
+##### In
 ```python
 health_data['Guido', 'HR']
 ```
-
-
-
-
+##### Out
     year  visit
     2013  1        23.0
           2        40.0
@@ -725,36 +537,14 @@ health_data['Guido', 'HR']
           2        50.0
     Name: (Guido, HR), dtype: float64
 
+<br>
 
-
-
+##### In
 ```python
 health_data.iloc[:2,:2]
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead tr th {
-        text-align: left;
-    }
-
-    .dataframe thead tr:last-of-type th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
+##### Out
+<table>
     <tr>
       <th></th>
       <th>subject</th>
@@ -772,8 +562,6 @@ health_data.iloc[:2,:2]
       <th></th>
       <th></th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th rowspan="2" valign="top">2013</th>
       <th>1</th>
@@ -785,20 +573,15 @@ health_data.iloc[:2,:2]
       <td>55.0</td>
       <td>37.2</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 health_data.loc[:, ('Bob','HR')]
 ```
-
-
-
-
+##### Out
     year  visit
     2013  1        43.0
           2        55.0
@@ -806,50 +589,27 @@ health_data.loc[:, ('Bob','HR')]
           2        46.0
     Name: (Bob, HR), dtype: float64
 
+<br>
 
-
-
+##### In
 ```python
 health_data.loc[(:,1),(:,'HR')]
 ```
-
-
+##### Out
       File "<ipython-input-28-2d8e6b30864e>", line 1
         health_data.loc[(:,1),(:,'HR')]
                          ^
     SyntaxError: invalid syntax
     
+<br>
 
-
-
+##### In
 ```python
 idx = pd.IndexSlice
 health_data.loc[idx[:,1], idx[:,'HR']]
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead tr th {
-        text-align: left;
-    }
-
-    .dataframe thead tr:last-of-type th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
+##### Out
+<table>
     <tr>
       <th></th>
       <th>subject</th>
@@ -871,8 +631,6 @@ health_data.loc[idx[:,1], idx[:,'HR']]
       <th></th>
       <th></th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>2013</th>
       <th>1</th>
@@ -887,25 +645,20 @@ health_data.loc[idx[:,1], idx[:,'HR']]
       <td>47.0</td>
       <td>23.0</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
-
+<br>
 
 ### 정렬된 인덱스와 정렬되지 않은 인덱스
 
-
+##### In
 ```python
 index = pd.MultiIndex.from_product([['a','c','b'], [1,2]])
 data = pd.Series(np.random.rand(6), index=index)
 data.index.names = ['char', 'int']
 data
 ```
-
-
-
-
+##### Out
     char  int
     a     1      0.119240
           2      0.377645
@@ -915,9 +668,9 @@ data
           2      0.496226
     dtype: float64
 
+<br>
 
-
-
+##### In
 ```python
 try:
     data['a':'b']
@@ -925,20 +678,18 @@ except KeyError as e:
     print(type(e))
     print(e)
 ```
-
+##### Out
     <class 'pandas.errors.UnsortedIndexError'>
     'Key length (1) was greater than MultiIndex lexsort depth (0)'
-    
 
+<br>
 
+##### In
 ```python
 data = data.sort_index()
 data
 ```
-
-
-
-
+##### Out
     char  int
     a     1      0.119240
           2      0.377645
@@ -948,16 +699,13 @@ data
           2      0.025945
     dtype: float64
 
+<br>
 
-
-
+##### In
 ```python
 data['a':'b']
 ```
-
-
-
-
+##### Out
     char  int
     a     1      0.119240
           2      0.377645
@@ -965,35 +713,17 @@ data['a':'b']
           2      0.496226
     dtype: float64
 
-
+<br>
 
 ### 인덱스 스태킹 및 언스태킹
 
-
+##### In
 ```python
 pop.unstack(level=0)
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th>states</th>
       <th>California</th>
       <th>New York</th>
@@ -1005,8 +735,6 @@ pop.unstack(level=0)
       <th></th>
       <th></th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>2000</th>
       <td>38714648</td>
@@ -1019,37 +747,17 @@ pop.unstack(level=0)
       <td>19378102</td>
       <td>25145561</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 pop.unstack(level=1)
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th>year</th>
       <th>2000</th>
       <th>2010</th>
@@ -1059,8 +767,6 @@ pop.unstack(level=1)
       <th></th>
       <th></th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>California</th>
       <td>38714648</td>
@@ -1076,20 +782,15 @@ pop.unstack(level=1)
       <td>20851820</td>
       <td>25145561</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 pop.unstack().stack()
 ```
-
-
-
-
+##### Out
     states      year
     California  2000    38714648
                 2010    37253956
@@ -1099,43 +800,23 @@ pop.unstack().stack()
                 2010    25145561
     dtype: int64
 
-
+<br>
 
 ### 인덱스 설정 및 재설정
 
-
+##### In
 ```python
 pop_flat = pop.reset_index(name='population')
 pop_flat
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>states</th>
       <th>year</th>
       <th>population</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>0</th>
       <td>California</td>
@@ -1172,37 +853,17 @@ pop_flat
       <td>2010</td>
       <td>25145561</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 pop_flat.set_index(['states', 'year'])
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th></th>
       <th>population</th>
@@ -1212,8 +873,6 @@ pop_flat.set_index(['states', 'year'])
       <th>year</th>
       <th></th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th rowspan="2" valign="top">California</th>
       <th>2000</th>
@@ -1241,42 +900,18 @@ pop_flat.set_index(['states', 'year'])
       <th>2010</th>
       <td>25145561</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
-
+<br>
 
 ### 다중 인덱스에서 데이터 집계
 
-
+##### In
 ```python
 health_data
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead tr th {
-        text-align: left;
-    }
-
-    .dataframe thead tr:last-of-type th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
+##### Out
+<table>
     <tr>
       <th></th>
       <th>subject</th>
@@ -1304,8 +939,6 @@ health_data
       <th></th>
       <th></th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th rowspan="2" valign="top">2013</th>
       <th>1</th>
@@ -1348,37 +981,15 @@ health_data
 </table>
 </div>
 
+<br>
 
-
-
+##### In
 ```python
 data_mean = health_data.mean(level='year')
 data_mean
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead tr th {
-        text-align: left;
-    }
-
-    .dataframe thead tr:last-of-type th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
+##### Out
+<table>
     <tr>
       <th>subject</th>
       <th colspan="2" halign="left">Bob</th>
@@ -1403,8 +1014,6 @@ data_mean
       <th></th>
       <th></th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>2013</th>
       <td>49.0</td>
@@ -1423,37 +1032,17 @@ data_mean
       <td>25.5</td>
       <td>36.35</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 data_mean.mean(axis=1, level='type')
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th>type</th>
       <th>HR</th>
       <th>Temp</th>
@@ -1463,8 +1052,6 @@ data_mean.mean(axis=1, level='type')
       <th></th>
       <th></th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>2013</th>
       <td>39.500000</td>
@@ -1475,8 +1062,4 @@ data_mean.mean(axis=1, level='type')
       <td>39.166667</td>
       <td>36.233333</td>
     </tr>
-  </tbody>
 </table>
-</div>
-
-
