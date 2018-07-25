@@ -1,7 +1,7 @@
 
 # Pandas
 
-참고 : 파이썬 데이터 사이언스 핸드북
+##### 참고 : 파이썬 데이터 사이언스 핸드북
 
 
 ```python
@@ -9,6 +9,7 @@ import numpy as np
 import pandas as pd
 ```
 
+<br>
 
 ```python
 def make_df(cols, ind):
@@ -16,38 +17,20 @@ def make_df(cols, ind):
     return pd.DataFrame(data, ind)
 ```
 
+<br>
 
+##### In
 ```python
 make_df('ABC', range(3))
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>A</th>
       <th>B</th>
       <th>C</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>0</th>
       <td>A0</td>
@@ -66,24 +49,19 @@ make_df('ABC', range(3))
       <td>B2</td>
       <td>C2</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
-
+<br>
 
 ### Concat
 
-
+##### In
 ```python
 ser1 = pd.Series(['A','B','C'], index=[1,2,3])
 ser2 = pd.Series(['D','E','F'], index=[4,5,6])
 pd.concat([ser1,ser2])
 ```
-
-
-
-
+##### Out
     1    A
     2    B
     3    C
@@ -92,41 +70,21 @@ pd.concat([ser1,ser2])
     6    F
     dtype: object
 
+<br>
 
-
-
+##### In
 ```python
 df1 = make_df('AB', [1,2])
 df2 = make_df('AB', [3,4])
 pd.concat([df1,df2])
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>A</th>
       <th>B</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>1</th>
       <td>A1</td>
@@ -147,47 +105,25 @@ pd.concat([df1,df2])
       <td>A4</td>
       <td>B4</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 df3 = make_df('AB', [0,1])
 df4 = make_df('CD', [0,1])
 pd.concat([df3, df4], axis=1)
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>A</th>
       <th>B</th>
       <th>C</th>
       <th>D</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>0</th>
       <td>A0</td>
@@ -202,48 +138,26 @@ pd.concat([df3, df4], axis=1)
       <td>C1</td>
       <td>D1</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
-
+<br>
 
 ### 인덱스 복제
 
-
+##### In
 ```python
 x = make_df('AB', [0,1])
 y = make_df('AB', [2,3])
 y.index = x.index # 복제 인덱스 생성
 pd.concat([x,y])
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>A</th>
       <th>B</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>0</th>
       <td>A0</td>
@@ -264,54 +178,33 @@ pd.concat([x,y])
       <td>A3</td>
       <td>B3</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 try:
     pd.concat([x,y], verify_integrity=True) # 인덱스가 겹지치 않게 검증
 except ValueError as e:
     print('ValueError : ', e)
 ```
-
+##### Out
     ValueError :  Indexes have overlapping values: [0, 1]
     
+<br>
 
-
+##### In
 ```python
 pd.concat([x,y], ignore_index=True) # 인덱스 자체가 중요하지 않은 경우, 인덱스 무시
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>A</th>
       <th>B</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>0</th>
       <td>A0</td>
@@ -332,44 +225,22 @@ pd.concat([x,y], ignore_index=True) # 인덱스 자체가 중요하지 않은 �
       <td>A3</td>
       <td>B3</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 pd.concat([x,y], keys=['x','y']) # 계층적 인덱싱
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th></th>
       <th>A</th>
       <th>B</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th rowspan="2" valign="top">x</th>
       <th>0</th>
@@ -392,49 +263,27 @@ pd.concat([x,y], keys=['x','y']) # 계층적 인덱싱
       <td>A3</td>
       <td>B3</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
-
+<br>
 
 ### 조인을 이용한 연결
 
-
+##### In
 ```python
 df5 = make_df('ABC', [1,2])
 df6 = make_df('BCD', [3,4])
 pd.concat([df5, df6])
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>A</th>
       <th>B</th>
       <th>C</th>
       <th>D</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>1</th>
       <td>A1</td>
@@ -463,43 +312,21 @@ pd.concat([df5, df6])
       <td>C4</td>
       <td>D4</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 pd.concat([df5, df6], join='inner')
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>B</th>
       <th>C</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>1</th>
       <td>B1</td>
@@ -520,44 +347,22 @@ pd.concat([df5, df6], join='inner')
       <td>B4</td>
       <td>C4</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 pd.concat([df5, df6], join_axes=[df5.columns])
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>A</th>
       <th>B</th>
       <th>C</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>1</th>
       <td>A1</td>
@@ -582,45 +387,23 @@ pd.concat([df5, df6], join_axes=[df5.columns])
       <td>B4</td>
       <td>C4</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
-
+<br>
 
 ### Append
 
-
+##### In
 ```python
 df1.append(df2)
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>A</th>
       <th>B</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>1</th>
       <td>A1</td>
@@ -641,15 +424,13 @@ df1.append(df2)
       <td>A4</td>
       <td>B4</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
-
+<br>
 
 ### Merge
 
-
+##### In
 ```python
 # 일대일 조인
 df1 = pd.DataFrame({'employee': ['Bob','Jake','Lisa','Sue'],
@@ -659,34 +440,14 @@ df2 = pd.DataFrame({'employee': ['Lisa','Bob','Jake','Sue'],
 df3 = pd.merge(df1, df2)
 df3
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>employee</th>
       <th>group</th>
       <th>hire_date</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>0</th>
       <td>Bob</td>
@@ -711,48 +472,26 @@ df3
       <td>HR</td>
       <td>2014</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 # 다대일 조인
 df4 = pd.DataFrame({'group': ['Accounting','Engineering','HR'],
                     'supervisor': ['Carly','Guido','Steve']})
 pd.merge(df3, df4)
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>employee</th>
       <th>group</th>
       <th>hire_date</th>
       <th>supervisor</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>0</th>
       <td>Bob</td>
@@ -781,47 +520,25 @@ pd.merge(df3, df4)
       <td>2014</td>
       <td>Steve</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 # 다대다 조인
 df5 = pd.DataFrame({'group': ['Accounting','Accounting','Engineering','Engineering','HR','HR'],
                     'skills': ['math','spreadsheets','coding','linux','spreadsheets','organization']})
 pd.merge(df1, df5)
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>employee</th>
       <th>group</th>
       <th>skills</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>0</th>
       <td>Bob</td>
@@ -870,46 +587,24 @@ pd.merge(df1, df5)
       <td>HR</td>
       <td>organization</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
-
+<br>
 
 ### 병합 키 지정
 
-
+##### In
 ```python
 pd.merge(df1, df2, on='employee')
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>employee</th>
       <th>group</th>
       <th>hire_date</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>0</th>
       <td>Bob</td>
@@ -934,47 +629,25 @@ pd.merge(df1, df2, on='employee')
       <td>HR</td>
       <td>2014</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 df3 = pd.DataFrame({'name': ['Bob','Jake','Lisa','Sue'],
                     'salary': [70000,80000,120000,90000]})
 pd.merge(df1, df3, left_on='employee', right_on='name')
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>employee</th>
       <th>group</th>
       <th>name</th>
       <th>salary</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>0</th>
       <td>Bob</td>
@@ -1003,39 +676,19 @@ pd.merge(df1, df3, left_on='employee', right_on='name')
       <td>Sue</td>
       <td>90000</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 df1a = df1.set_index('employee')
 df2a = df2.set_index('employee')
 pd.merge(df1a, df2a, left_index=True, right_index=True)
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>group</th>
       <th>hire_date</th>
@@ -1045,8 +698,6 @@ pd.merge(df1a, df2a, left_index=True, right_index=True)
       <th></th>
       <th></th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>Bob</th>
       <td>Accounting</td>
@@ -1067,37 +718,17 @@ pd.merge(df1a, df2a, left_index=True, right_index=True)
       <td>HR</td>
       <td>2014</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 df1a.join(df2a)
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>group</th>
       <th>hire_date</th>
@@ -1107,8 +738,6 @@ df1a.join(df2a)
       <th></th>
       <th></th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>Bob</th>
       <td>Accounting</td>
@@ -1129,44 +758,22 @@ df1a.join(df2a)
       <td>HR</td>
       <td>2014</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 pd.merge(df1a, df3, left_index=True, right_on='name')
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>group</th>
       <th>name</th>
       <th>salary</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>0</th>
       <td>Accounting</td>
@@ -1191,15 +798,13 @@ pd.merge(df1a, df3, left_index=True, right_on='name')
       <td>Sue</td>
       <td>90000</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
-
+<br>
 
 ### 조인을 위한 집합 연산 지정하기
 
-
+##### In
 ```python
 df6 = pd.DataFrame({'name': ['Peter','Paul','Mary'],
                     'food': ['fish','beans','bread']},
@@ -1209,122 +814,58 @@ df7 = pd.DataFrame({'name': ['Mary','Joseph'],
                    columns=['name','drink'])
 pd.merge(df6, df7)
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>name</th>
       <th>food</th>
       <th>drink</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>0</th>
       <td>Mary</td>
       <td>bread</td>
       <td>wine</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 pd.merge(df6, df7, how='inner')
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>name</th>
       <th>food</th>
       <th>drink</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>0</th>
       <td>Mary</td>
       <td>bread</td>
       <td>wine</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 pd.merge(df6, df7, how='outer')
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>name</th>
       <th>food</th>
       <th>drink</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>0</th>
       <td>Peter</td>
@@ -1349,44 +890,22 @@ pd.merge(df6, df7, how='outer')
       <td>NaN</td>
       <td>beer</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 pd.merge(df6, df7, how='left')
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>name</th>
       <th>food</th>
       <th>drink</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>0</th>
       <td>Peter</td>
@@ -1405,44 +924,22 @@ pd.merge(df6, df7, how='left')
       <td>bread</td>
       <td>wine</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 pd.merge(df6, df7, how='right')
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>name</th>
       <th>food</th>
       <th>drink</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>0</th>
       <td>Mary</td>
@@ -1455,15 +952,13 @@ pd.merge(df6, df7, how='right')
       <td>NaN</td>
       <td>beer</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
-
+<br>
 
 ### 열 이름이 겹치는 경우 : suffixes
 
-
+##### In
 ```python
 df8 = pd.DataFrame({'name': ['Bob','Jake','Lisa','Sue'],
                     'rank': [1,2,3,4]})
@@ -1471,34 +966,14 @@ df9 = pd.DataFrame({'name': ['Bob','Jake','Lisa','Sue'],
                     'rank': [3,1,4,2]})
 pd.merge(df8, df9, on='name')
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>name</th>
       <th>rank_x</th>
       <th>rank_y</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>0</th>
       <td>Bob</td>
@@ -1523,44 +998,22 @@ pd.merge(df8, df9, on='name')
       <td>4</td>
       <td>2</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
+<br>
 
-
-
+##### In
 ```python
 pd.merge(df8, df9, on='name', suffixes=['_L','_R'])
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
+##### Out
+<table>
+    <tr>
       <th></th>
       <th>name</th>
       <th>rank_L</th>
       <th>rank_R</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <th>0</th>
       <td>Bob</td>
@@ -1585,8 +1038,6 @@ pd.merge(df8, df9, on='name', suffixes=['_L','_R'])
       <td>4</td>
       <td>2</td>
     </tr>
-  </tbody>
 </table>
-</div>
 
 
