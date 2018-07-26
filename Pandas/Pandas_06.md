@@ -41,16 +41,14 @@ import pandas as pd
     
 <br>
 
-
+##### In
 ```python
 pop = pd.read_csv('state-population.csv')
 areas = pd.read_csv('state-areas.csv')
 abbrevs = pd.read_csv('state-abbrevs.csv')
 ```
 
-<br>
 
-##### In
 ```python
 pop.head()
 ```
