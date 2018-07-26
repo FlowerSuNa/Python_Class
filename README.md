@@ -17,6 +17,7 @@
 03 [누락된 데이터 처리](Pandas/Pandas_03.md) <br>
 04 [계층적 인덱싱](Pandas/Pandas_04.md) <br>
 05 [데이터세트 결합하기](Pandas/Pandas_05.md) <br>
+06 [예제 : 미국 주 데이터](Pandas/Pandas_06.md) <br>
 
 <br>
 
